@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(rgb(236, 156, 6), green, blue)
+  background-color: coral;
 }
 
 header {
@@ -13,14 +13,20 @@ header img {
 
   background-color: coral;
   height: 70px;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+
 }
 
 #nav_bar {
   display: flex;
   height: 70px;
   list-style-type: none;
-  border-radius: 15px;
   padding: 0%;
+  border-bottom: 1px solid black;
+  justify-content: left;
+  width: 100%;
 
 }
 
@@ -28,8 +34,9 @@ header img {
   display: flex;
   align-items: center;
   padding: 0%;
-  
-  
+
+
+
 }
 
 .navBar li {
@@ -39,5 +46,14 @@ header img {
   padding: 10px;
   margin: 2px;
   border: 1px solid;
-  border-color: ;
+  border-color: black;
+}
+
+#boton_login-register {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items:baseline
+  
+  
 }
