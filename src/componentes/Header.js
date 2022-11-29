@@ -15,7 +15,7 @@ export default function Header() {
                <li><a href=""></a>Publica tu receta </li>
             </ul>
             <div id="boton_login-register">
-               Login / Register
+               Inicio de Sesión / Registro
             </div>
          </nav>
       </header>

@@ -25,8 +25,8 @@ header img {
   list-style-type: none;
   padding: 0%;
   border-bottom: 1px solid black;
-  justify-content: left;
   width: 100%;
+  justify-content: space-between;
 
 }
 
@@ -51,9 +51,17 @@ header img {
 
 #boton_login-register {
   display: flex;
-  justify-content: center;
-  text-align: center;
-  align-items:baseline
+  align-items: center;
+  padding: 10px;
+  margin-top: 13px;
+  margin-bottom: 13px;
+  margin-right: 1px;
+  border: 1px solid black;
+  background-color: darkred;
+  color: white;
+  
+  
+  
   
   
 }
