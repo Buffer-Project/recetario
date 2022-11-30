@@ -1,12 +1,11 @@
 body {
-  background-color: coral;
+  background-color: rgb(112, 168, 221);
 }
 
 header {
   display: flex;
   height: 70px;
-  background-color: coral;
-
+  background-color: rgb(112, 168, 221)
 }
 
 header img {
@@ -59,9 +58,38 @@ header img {
   border: 1px solid black;
   background-color: darkred;
   color: white;
+
+}
+
+#redes-soc{
+  display: flex;
+  flex-direction: column;
+  height: 40px;
+}
+
+#texto-redes-soc{
+  background-color: black;
+  color: white;
+  width: 200px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
   
-  
-  
-  
+
+
+}
+
+#iconos-redes{
+  display: flex;
+  flex-direction: row;
+  width: 200px;
+  height: 30px;
+  justify-content: space-around;
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
   
 }
+
