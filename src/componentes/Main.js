@@ -2,8 +2,14 @@ export default function Main() {
 
     return (
         <main>
-            <input type="text" class="nav-search-input" aria-label="Ingresá lo que quieras encontrar" name="as_word" placeholder="Buscar productos, marcas y más…" maxlength="120" autofocus="" autocapitalize="none" autocorrect="off" spellcheck="false" autocomplete="off" tabindex="2" value="" aria-activedescendant="" aria-controls="cb1-list" aria-autocomplete="list" id="cb1-edit" aria-expanded="false" role="combobox"></input>
+            <div id="div-searchbar">
+                <input id="searchbar" type="search" placeholder="Buscar recetas, ingredientes, y más..." ></input>
+                <div id="icono-lupa">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrBPjW-HJAeJyvcXBJcZ-VspgyqXvfs-Nd4Kz3wug04w&s" alt="lupa"></img>
+                </div>
+            </div>
             <section id="carrouselDeRecetas">
+                <p>aca iria el carrousel de imagenes de recetas</p>
                 <div>
                     <h3 id="autorReceta">Autor de la receta</h3>
                 </div>
@@ -11,9 +17,9 @@ export default function Main() {
 
                 </div>
                 <div id="nombreDeReceta">
-                        <p>
-                            Nombre de la receta
-                        </p>
+                    <p>
+                        Nombre de la receta
+                    </p>
                 </div>
             </section>
 

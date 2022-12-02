@@ -61,7 +61,7 @@ header img {
 
 }
 
-#carrouselDeRecetas{
+#carrouselDeRecetas {
   background-color: rgb(30, 157, 161);
 }
 
@@ -76,13 +76,13 @@ header img {
   padding: 25px;
 }
 
-#redes-soc{
+#redes-soc {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-#texto-redes-soc{
+#texto-redes-soc {
   background-color: black;
   color: white;
   width: 200px;
@@ -90,12 +90,12 @@ header img {
   padding-bottom: 5px;
   padding-left: 5px;
   border: 1px solid black;
-  
+
 
 
 }
 
-#iconos-redes{
+#iconos-redes {
   display: flex;
   flex-direction: row;
   width: 200px;
@@ -106,14 +106,48 @@ header img {
   padding-bottom: 5px;
   padding-left: 5px;
   border: 1px solid;
-  
+
 }
 
-#subs-form{
+#subs-form {
   width: 350px;
   background-color: rgb(112, 115, 117);
   padding: 5px;
   color: white;
 
+}
+
+#sub-button:hover{
+  cursor: pointer;
+}
+
+#searchbar {
+  display: flex;
+  height: 35px;
+  width: 33%;
+  margin-top: 3px;
+  border: 1px solid;
+}
+
+#div-searchbar{
+  display: flex;
+  justify-content: center;
+  align-items: center ;
+}
+
+#icono-lupa{
+  width: 35px;
+  height: 35px;
+  padding-top: 3px;
+  
+}
+
+#icono-lupa img{
+  width: 34px;
+  height: 33px;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+   
 }
 

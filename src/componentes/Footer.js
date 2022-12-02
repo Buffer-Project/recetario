@@ -19,15 +19,15 @@ export default function Footer() {
             </div>
             <section id="subs-form">
                 <form>
-                    <p>Suscribite para no perderte ninguna receta!</p>
+                    <p>Suscribite para no perderte ninguna novedad!</p>
                     <p>
                         <input type="text" name="nombre" placeholder="Nombre" value="" id="campo-suscripcion-nombre"></input>
                     </p>
                     <p>
-                        <input type="text" name="email" placeholder="Ingresa tu email" value="" id="campo-suscripcion-mail"></input>
+                        <input type="email" name="email" placeholder="Ingresa tu email" value="" id="campo-suscripcion-mail"></input>
                     </p>
                     <p>
-                        <input type="submit" value="Suscribirse"></input>
+                        <input id="sub-button" type="submit" value="Suscribirse"></input>
                     </p>
                 </form>
             </section>
