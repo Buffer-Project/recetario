@@ -4,7 +4,7 @@ export default function Main() {
         <main>
             <div id="div-searchbar">
                 <input id="searchbar" type="search" placeholder="Buscar recetas, ingredientes, y más..." ></input>
-                <div id="icono-lupa">
+                <div id="div-icono-lupa">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrBPjW-HJAeJyvcXBJcZ-VspgyqXvfs-Nd4Kz3wug04w&s" alt="lupa"></img>
                 </div>
             </div>
