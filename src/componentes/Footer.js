@@ -2,8 +2,8 @@ export default function Footer() {
 
     return (
         <footer id="footer">
-             <p>
-                Contacto<br/><br/>Inicio<br/><br/>Lorem<br/><br/>Ipsum<br/><br/>
+            <p>
+                Contacto<br /><br />Inicio<br /><br />Lorem<br /><br />Ipsum<br /><br />
             </p>
             <div id="redes-soc">
                 <div id="texto-redes-soc">
@@ -18,7 +18,7 @@ export default function Footer() {
                 </div>
             </div>
             <section id="subs-form">
-                <form>
+                <form className="sub">
                     <p>Suscribite para no perderte ninguna novedad!</p>
                     <p>
                         <input type="text" name="nombre" placeholder="Nombre" value="" id="campo-suscripcion-nombre"></input>
@@ -31,7 +31,7 @@ export default function Footer() {
                     </p>
                 </form>
             </section>
-           
+
         </footer>
 
     )

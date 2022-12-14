@@ -1,3 +1,4 @@
+
 body {
   background-color: rgb(112, 168, 221);
 }
@@ -61,6 +62,7 @@ header img {
   border: 1px solid black;
   background-color: rgb(43, 94, 128);
   color: white;
+  cursor: pointer;
 
 
 }
@@ -79,7 +81,6 @@ header img {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 200px;
   padding: 25px;
 }
 
@@ -91,9 +92,10 @@ header img {
 }
 
 #texto-redes-soc {
+  flex: 1;
   background-color: black;
   color: white;
-  width: 200px;
+  max-width: 250px;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 5px;
@@ -116,13 +118,30 @@ header img {
   border: 1px solid;
 }
 
+#iconos-redes img {
+  height: 100%;
+}
+
 #subs-form {
+  display: flex;
+  flex-direction: column;
   width: 350px;
   background-color: rgb(112, 115, 117);
   padding: 20px;
   color: white;
   border-radius: 15px;
 
+}
+
+.sub {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sub p {
+  margin: 0;
 }
 
 #sub-button:hover {
