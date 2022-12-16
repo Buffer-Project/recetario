@@ -1,20 +1,34 @@
 import { useState } from 'react'
 import { Dialog } from 'primereact/dialog';
+import usuarios from "./Usuarios.json"
 export default function Header() {
 
    const [visible, setVisible] = useState(false)
    const [username, setUsername] = useState("")
+   const [password, setPassword] = useState("")
+   const [user, setUser] = useState({})
+
+   const handleLogin = () => {
+      for (let i = 0; i < 4; i++) {
+
+         if (usuarios[i].password === password && usuarios[i].username === username) {
+            setUser(usuarios[i])
+         }
+
+
+      }
+   }
 
    return (
       <header>
          <Dialog onHide={() => { setVisible(false) }} visible={visible} draggable={false} dismissableMask={true} closable={false}>
             <div>Usuario o Email</div>
-            <input value={username} onChange={(event) => { setUsername(event.target.value) }} placeholder={""} />
+            <input value={username} onChange={(event) => { setUsername(event.target.value) }} placeholder={"Usuario"} />
             <div>
                Contraseña
             </div>
-            <input type="password" placeholder={"Contraseña"}></input>
-            <button onClick={() =>alert("Se ha logueado correctamente!")}>
+            <input type="password" value={password} onChange={(event) => { setPassword(event.target.value) }} placeholder={"Contraseña"}></input>
+            <button onClick={handleLogin()}>
                Submit
             </button>
          </Dialog>
@@ -31,7 +45,7 @@ export default function Header() {
                <li><a href=""></a>Publica tu receta </li>
             </ul>
             <div onClick={() => setVisible(true)} id="boton_login-register">
-               Inicio de Sesión / Registro
+               {!user.name ? "Inicio de Sesión / Registro" : "Hola" + user.name}
             </div>
          </nav>
       </header>
