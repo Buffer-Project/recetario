@@ -13,6 +13,7 @@ export default function Header() {
 
          if (usuarios[i].password === password && usuarios[i].username === username) {
             setUser(usuarios[i])
+            setVisible(false)
          }
 
 
@@ -28,7 +29,7 @@ export default function Header() {
                Contraseña
             </div>
             <input type="password" value={password} onChange={(event) => { setPassword(event.target.value) }} placeholder={"Contraseña"}></input>
-            <button onClick={handleLogin()}>
+            <button onClick={() => handleLogin()}>
                Submit
             </button>
          </Dialog>
@@ -45,7 +46,7 @@ export default function Header() {
                <li><a href=""></a>Publica tu receta </li>
             </ul>
             <div onClick={() => setVisible(true)} id="boton_login-register">
-               {!user.name ? "Inicio de Sesión / Registro" : "Hola" + user.name}
+               {!user.name ? "Inicio de Sesión / Registro" : "Hola " + user.name}
             </div>
          </nav>
       </header>
