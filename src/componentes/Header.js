@@ -46,7 +46,7 @@ export default function Header() {
                <li><a href=""></a>Publica tu receta </li>
             </ul>
             <div onClick={() => setVisible(true)} id="boton_login-register">
-               {!user.name ? "Inicio de Sesión / Registro" : "Hola " + user.name}
+               {!user.name ? "Inicio de Sesión / Registro" : "Hola, " + user.name +"!"}
             </div>
          </nav>
       </header>
