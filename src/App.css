@@ -115,6 +115,7 @@ header img {
   padding-bottom: 5px;
   padding-left: 5px;
   border: 1px solid;
+  cursor: pointer;
 }
 
 #iconos-redes img {
