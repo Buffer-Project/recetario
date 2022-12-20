@@ -1,15 +1,30 @@
 import recetas from "./Recetas.json"
 export default function VisorRecetas() {
 
-    const receta = recetas[0]
-    console.log(receta)
-    console.log(recetas)
+    const mostrarIngredientes = () => {
+         
+        return(
+            <div>{recetas[0].ingredientes.map(item => (
+                <p>{item.cantidad} de {item.ingrediente}</p>
+                
+            ))}</div>
+            )
+
+    }
+
 
     return (
 
         <div>
-            {receta.name} hola
+            <header>
+                Receta de {recetas[0].nombreReceta}
+            </header>
+            <div>
+                <p>Ingredientes</p>
+                {mostrarIngredientes()}
+            </div>
         </div>
+
 
 
     )
