@@ -1,7 +1,7 @@
 export default function Main() {
 
     return (
-        <main>
+        <div>
             <div id="div-searchbar">
                 <input id="searchbar" type="search" placeholder="Buscar recetas, ingredientes, y más..." ></input>
                 <div id="div-icono-lupa">
@@ -23,7 +23,7 @@ export default function Main() {
                 </div>
             </section>
 
-        </main>
+        </div>
 
     )
 }

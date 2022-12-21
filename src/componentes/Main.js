@@ -5,11 +5,13 @@ import VisorRecetas from "./VisorRecetas"
 
 export default function Main () {
     return (
+        <main>
         <Routes>
             <Route exact path={"/"} element={<Landing/>} />
             <Route path={"/recetas"} element={<ListaRecetas/>} />
             <Route exact path={"/receta/:id"} element={<VisorRecetas/>} />
 
         </Routes>
+        </main>
     )
 }

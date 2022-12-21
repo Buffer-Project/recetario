@@ -1,11 +1,15 @@
+main {
+  flex:1
+}
+
 body {
-  background-color: rgb(112, 168, 221);
+  background-color: rgb(30, 157, 161);
 }
 
 header {
   display: flex;
   height: 70px;
-  background-color: rgb(112, 168, 221)
+  background-color: rgb(30, 157, 161)
 }
 
 header img {
@@ -49,6 +53,7 @@ header img {
   border: 1px solid;
   border-color: black;
   border-radius: 15px;
+  background-color: rgb(186, 212, 236);
 }
 
 #boton_login-register {
@@ -76,9 +81,7 @@ header img {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  background-color: rgb(43, 94, 128);
-  position: absolute;
-  bottom: 0;
+  background-color: rgb(186, 212, 236);
   width: 100%;
   padding: 25px;
 }
@@ -161,6 +164,7 @@ header img {
   margin-top: 10px;
   justify-content: center;
   align-items: center;
+  
 }
 
 #div-icono-lupa {
@@ -200,7 +204,7 @@ header img {
   align-self: center;
 }
 
-#pr_id_2{
+#pr_id_2 {
   font-size: large;
   max-height: 400px;
   max-width: 400px;
