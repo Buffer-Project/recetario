@@ -125,6 +125,10 @@ header img {
   height: 100%;
 }
 
+#iconos-redes img {
+  height: 100%;
+}
+
 #subs-form {
   display: flex;
   flex-direction: column;
