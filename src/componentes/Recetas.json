@@ -2,7 +2,7 @@
     {
         "id": "1",
         "nombreReceta": "Tiramisu",
-        "imagenReceta": "IMAGEN",
+        "imagenReceta": "https://media.istockphoto.com/id/585178794/es/foto/el-tiramis%C3%BA.jpg?s=612x612&w=0&k=20&c=crnmNlpdoueh9tL_EdaS1cZ2f08PZ2RGabpmO30JeTs=",
         "ingredientes": [
             {
                 "ingrediente": "Azucar",
