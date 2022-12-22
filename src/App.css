@@ -88,6 +88,7 @@ header img {
   width: 100%;
   padding: 25px;
   
+  
 
 
 }
@@ -253,6 +254,15 @@ header img {
 
 #titulo-ingredientes{
   margin-left: 25px;
+  margin-top: 15px;
+}
+
+.lista-ingredientes{
+  background-color: white;
+  border-radius: 15px;
+  margin: 40px;
+  padding: 10px;
+  width: 40%;
 }
 
 .lista-ingredientes ul li{

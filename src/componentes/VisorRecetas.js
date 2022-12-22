@@ -25,8 +25,11 @@ export default function VisorRecetas() {
             <div className="imagen-receta">
                 <img src={recetas[0].imagenReceta} alt="imagen-receta"></img>
             </div>
-            <p id="titulo-ingredientes"><b>Ingredientes:</b></p>
-            <div className="lista-ingredientes">{mostrarIngredientes()}</div>
+            
+            <div className="lista-ingredientes">
+                <p id="titulo-ingredientes"><b>Ingredientes:</b></p>
+                {mostrarIngredientes()}
+            </div>
         </div>
 
 
