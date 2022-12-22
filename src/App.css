@@ -1,8 +1,11 @@
+.App{
+  display: flex;
+  flex-direction: column;
+}
 main {
   display: flex;
   flex: 1;
-  
-  
+
 }
 
 
@@ -30,6 +33,7 @@ header img {
 
 #nav_bar {
   display: flex;
+  flex: 1;
   height: 70px;
   list-style-type: none;
   padding: 0%;
@@ -168,6 +172,7 @@ header img {
 
 #searchbar {
   display: flex;
+  flex: 1;
   height: 35px;
   width: 33%;
   border: 1px solid black;
@@ -291,12 +296,12 @@ header img {
 }
 
 .preparacion ol li {
-  margin:20px;
-  
+  margin: 20px;
+
 }
 
-.rating{
-  
+.rating {
+
   justify-content: center;
   align-items: center;
   background-color: white;
