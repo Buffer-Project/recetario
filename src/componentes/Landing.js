@@ -1,7 +1,7 @@
 export default function Landing() {
 
     return (
-        <div>
+        <div id="landing">
             <div id="div-searchbar">
                 <input id="searchbar" type="search" placeholder="Buscar recetas, ingredientes, y más..." ></input>
                 <div id="div-icono-lupa">

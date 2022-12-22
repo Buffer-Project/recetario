@@ -1,10 +1,14 @@
 .App{
   display: flex;
   flex-direction: column;
+  flex: 1;
+  min-height: 100vh;
+  
 }
 main {
   display: flex;
   flex: 1;
+  width: 100%;
 
 }
 
@@ -13,6 +17,10 @@ body {
   background-color: rgb(30, 157, 161);
   flex: 1;
 
+}
+
+#landing{
+  width: 100%;
 }
 
 header {
@@ -33,13 +41,13 @@ header img {
 
 #nav_bar {
   display: flex;
-  flex: 1;
   height: 70px;
   list-style-type: none;
   padding: 0%;
   border-bottom: 1px solid black;
   width: 100%;
   justify-content: space-between;
+  
 
 }
 
@@ -90,7 +98,6 @@ header img {
 #footer {
   display: flex;
   flex: 1;
-  flex-direction: row;
   justify-content: space-around;
   background-color: rgb(186, 212, 236);
   width: 100%;
@@ -170,22 +177,26 @@ header img {
   cursor: pointer;
 }
 
+#div-searchbar {
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  width: 33%;
+  margin-top: 10px;
+  
+  
+
+}
+
 #searchbar {
   display: flex;
   flex: 1;
   height: 35px;
-  width: 33%;
   border: 1px solid black;
 
 }
 
-#div-searchbar {
-  display: flex;
-  margin-top: 10px;
-  justify-content: center;
-  align-items: center;
 
-}
 
 #div-icono-lupa {
   display: flex;

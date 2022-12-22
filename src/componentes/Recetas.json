@@ -38,12 +38,14 @@
             "Verter las yemas sobre el mascarpone e integrar con movimientos envolventes. Sumar la crema de leche semi batida y mezclar suavemente.",
             "Hidratar los bizcochos de tiramisú en el café.",
             "Disponer la primer capa vainillas en la fuente. Debe quedar una capa de vainillas, una de crema, una de vainillas y por último una de crema.",
-            "Espolvoreamos por arriba el cacao amargo y el chocolate semi amargo rallado o picado y a la heladera!"
+            "Espolvoreamos por arriba el cacao amargo y el chocolate semi amargo rallado o picado y a la heladera!",
+            "Retirar de la heladera, y listo para comer!"
         ]
     },
     {
         "id": "2",
         "nombreReceta": "Lemon Pie",
+        "imagenReceta":"https://www.shutterstock.com/image-photo/slice-lemon-pie-isolated-on-260nw-773577262.jpg",
         "ingredientes": [
             {
                 "ingrediente": "Galletitas de vainilla",
@@ -82,6 +84,7 @@
             "Y ahora el merengue francés: empezamos batiendo las 4 claras con batidora hasta que levanten (como si fuera espuma). Agregamos 200 gr de azucar en forma de lluvia sin dejar de batir, seguimos batiendo hasta lograr la consistencia deseada (bien espeso).",
             "Agregamos el merengue encima de la crema de limón en la tartera. Con una cuchara distribuimos y damos al merengue la forma que deseamos.",
             "Poner al horno (en la bandeja más alta posible o en la parrilla del horno) bien caliente."
+            
         ]
     },
     {
