@@ -3,11 +3,13 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import recetas from "./Recetas.json"
 export default function VisorRecetas() {
+    const { id } = useParams();
+    const receta = recetas.filter((receta) => receta.id===id)[0]
     const [value, setValue] = useState("")
     const mostrarIngredientes = () => {
 
         return (
-            <ul>{recetas[id].ingredientes.map(item => (
+            <ul>{receta.ingredientes.map(item => (
                 <li>{item.cantidad} de {item.ingrediente}</li>
 
             ))}</ul>
@@ -18,7 +20,7 @@ export default function VisorRecetas() {
     const mostrarPreparacion = () => {
 
         return (
-            <ol>{recetas[id].preparacion.map(item => (
+            <ol>{receta.preparacion.map(item => (
                 <li>{item}</li>
 
             ))}</ol>
@@ -26,21 +28,21 @@ export default function VisorRecetas() {
 
     }
 
-   const {id} = useParams();
+
 
 
 
 
     return (
-       <div>
+        <div>
             <header id="header-visor">
-                <p>{recetas[id].nombreReceta}</p>
+                <p>{receta.nombreReceta}</p>
             </header>
             <div id="fecha-publicacion">
                 Publicado el xx/xx/xxxx
             </div>
             <div className="imagen-receta">
-                <img src={recetas[id].imagenReceta} alt="imagen-receta"></img>
+                <img src={receta.imagenReceta} alt="imagen-receta"></img>
             </div>
 
             <div className="lista-ingredientes">

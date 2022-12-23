@@ -9,7 +9,7 @@ export default function Header() {
    const [user, setUser] = useState({})
 
    const handleLogin = () => {
-      for (let i = 0; i < 4; i++) {
+      for (let i = 0; i < usuarios.length; i++) {
 
          if (usuarios[i].password === password && usuarios[i].username === username) {
             setUser(usuarios[i])
@@ -45,6 +45,12 @@ export default function Header() {
                <li><a href=""></a>Postres </li>
                <li><a href=""></a>Publica tu receta </li>
             </ul>
+            <div id="div-searchbar">
+                <input id="searchbar" type="search" placeholder="Buscar recetas, ingredientes, y más..." ></input>
+                <div id="div-icono-lupa">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrBPjW-HJAeJyvcXBJcZ-VspgyqXvfs-Nd4Kz3wug04w&s" alt="lupa"></img>
+                </div>
+            </div>
             <div onClick={() => setVisible(true)} id="boton_login-register">
                {!user.name ? "Inicio de Sesión / Registro" : "Hola, " + user.name +"!"}
             </div>
