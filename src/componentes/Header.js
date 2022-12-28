@@ -35,7 +35,7 @@ export default function Header() {
             </button>
          </Dialog>
          <div id="div_logo">
-            <Link to={"./Landing.js"} >
+            <Link to={"./Landing"} >
                <img id="icono_inicio" src="https://png.pngtree.com/png-vector/20210303/ourmid/pngtree-cat-paw-shape-cartoon-white-chef-hat-png-image_2987315.jpg" alt=''></img>
             </Link>
          </div>

@@ -9,7 +9,7 @@ export default function Main() {
         <main>
             <Routes>
                 <Route exact path={"/"} element={<Landing />} />
-                <Route exact path={"/Landing.js"} element={<Landing />} />
+                <Route exact path={"/Landing"} element={<Landing />} />
                 <Route path={"/recetas"} element={<ListaRecetas />} />
                 <Route exact path={"/receta/:id"} element={<VisorRecetas />} />
                 <Route exact path={"/NuevaReceta"} element={<NuevaReceta />} />
