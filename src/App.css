@@ -1,10 +1,13 @@
-.App{
+.App {
   display: flex;
   flex-direction: column;
   flex: 1;
   min-height: 100vh;
-  
+
+
 }
+
+
 main {
   display: flex;
   flex: 1;
@@ -19,7 +22,7 @@ body {
 
 }
 
-#landing{
+#landing {
   width: 100%;
 }
 
@@ -33,7 +36,7 @@ header img {
 
   background-color: coral;
   height: 70px;
-  
+
 
 }
 
@@ -45,7 +48,7 @@ header img {
   border-bottom: 1px solid black;
   width: 100%;
   justify-content: space-between;
-  
+
 
 }
 
@@ -54,7 +57,6 @@ header img {
   align-items: center;
   padding: 0%;
   margin-left: 10px;
-  cursor: pointer;
   width: 33%;
 
 
@@ -183,8 +185,8 @@ header img {
   align-self: center;
   width: 33%;
   margin-top: 10px;
-  
-  
+
+
 
 }
 
@@ -322,3 +324,25 @@ header img {
   width: fit-content;
 }
 
+#boton-nuevaReceta {
+  text-decoration: none;
+  color: black;
+}
+
+#div-nueva-receta {
+  display: flex;
+  width: 100%;
+}
+
+#nueva-receta {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin-left: 350px;
+  margin-right: 350px;
+  margin-top:50px;
+  margin-bottom: 50px;
+  background-color: white;
+  border-radius: 15px;
+  padding: 30px;
+}

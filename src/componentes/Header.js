@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Dialog } from 'primereact/dialog';
 import usuarios from "./Usuarios.json"
+import { Link } from 'react-router-dom';
 export default function Header() {
 
    const [visible, setVisible] = useState(false)
@@ -34,25 +35,25 @@ export default function Header() {
             </button>
          </Dialog>
          <div id="div_logo">
-            <a href="Landing.js">
-               <img id="icono_inicio" src="https://png.pngtree.com/png-vector/20210303/ourmid/pngtree-cat-paw-shape-cartoon-white-chef-hat-png-image_2987315.jpg"></img>
-            </a>
+            <Link to={"./Landing.js"} >
+               <img id="icono_inicio" src="https://png.pngtree.com/png-vector/20210303/ourmid/pngtree-cat-paw-shape-cartoon-white-chef-hat-png-image_2987315.jpg" alt=''></img>
+            </Link>
          </div>
          <nav id="nav_bar">
-            <ul className="navBar">
-               <li><a href=""></a>Platos </li>
-               <li><a href=""></a>Bebidas </li>
-               <li><a href=""></a>Postres </li>
-               <li><a href=""></a>Publica tu receta </li>
+            <ul className="navBar"> 
+               <li>Platos</li>
+               <li>Bebidas</li>
+               <li>Postres</li>
+               <Link id='boton-nuevaReceta' to={"./NuevaReceta"} ><li>Publica tu receta</li></Link>
             </ul>
             <div id="div-searchbar">
-                <input id="searchbar" type="search" placeholder="Buscar recetas, ingredientes, y más..." ></input>
-                <div id="div-icono-lupa">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrBPjW-HJAeJyvcXBJcZ-VspgyqXvfs-Nd4Kz3wug04w&s" alt="lupa"></img>
-                </div>
+               <input id="searchbar" type="search" placeholder="Buscar recetas, ingredientes, y más..." ></input>
+               <div id="div-icono-lupa">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrBPjW-HJAeJyvcXBJcZ-VspgyqXvfs-Nd4Kz3wug04w&s" alt="lupa"></img>
+               </div>
             </div>
             <div onClick={() => setVisible(true)} id="boton_login-register">
-               {!user.name ? "Inicio de Sesión / Registro" : "Hola, " + user.name +"!"}
+               {!user.name ? "Inicio de Sesión / Registro" : "Hola, " + user.name + "!"}
             </div>
          </nav>
       </header>
