@@ -54,10 +54,12 @@ header img {
 
 .navBar {
   display: flex;
+  flex:1;
   align-items: center;
   padding: 0%;
   margin-left: 10px;
   width: 33%;
+
 
 
 

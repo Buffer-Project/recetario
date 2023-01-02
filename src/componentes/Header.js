@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { Dialog } from 'primereact/dialog';
 import usuarios from "./Usuarios.json"
+
+
 import { Link } from 'react-router-dom';
 export default function Header() {
 
@@ -21,6 +23,10 @@ export default function Header() {
       }
    }
 
+
+
+
+
    return (
       <header>
          <Dialog onHide={() => { setVisible(false) }} visible={visible} draggable={false} dismissableMask={true} closable={false}>
@@ -35,12 +41,12 @@ export default function Header() {
             </button>
          </Dialog>
          <div id="div_logo">
-            <Link to={"./Landing"} >
+            <Link to={"/"}>
                <img id="icono_inicio" src="https://png.pngtree.com/png-vector/20210303/ourmid/pngtree-cat-paw-shape-cartoon-white-chef-hat-png-image_2987315.jpg" alt=''></img>
             </Link>
          </div>
          <nav id="nav_bar">
-            <ul className="navBar"> 
+            <ul className="navBar">
                <li>Platos</li>
                <li>Bebidas</li>
                <li>Postres</li>
