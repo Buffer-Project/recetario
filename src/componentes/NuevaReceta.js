@@ -1,7 +1,7 @@
 import { useState } from "react"
 import recetas from "./Recetas.json"
 
-const fs = require("fs")
+
 
 
 export default function NuevaReceta() {
@@ -9,13 +9,9 @@ export default function NuevaReceta() {
     const [ingredientes, setIngredientes] = useState("")
     const [preparación, setPreparación] = useState("")
 
-    const cargarReceta = () => {
-        let nuevaReceta = {  }
-    }
+    
 
-    const escribirArchivo = () => {
-        fs.writeFile("./Recetas.json", recetas)
-    }
+    
 
     return (
         <div id="div-nueva-receta">
