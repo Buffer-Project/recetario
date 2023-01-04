@@ -11,7 +11,7 @@ export default function NuevaReceta() {
 
     
 
-    
+
 
     return (
         <div id="div-nueva-receta">
@@ -20,14 +20,16 @@ export default function NuevaReceta() {
                     Compartí tu receta!
                 </h1>
                 <form>
-                <p>Titulo de la receta</p>
-                <input value={tituloReceta} onChange={(event) => { setTituloReceta(event.target.value) }} placeholder={"Título"}></input>
-                <p>Ingredientes</p>
-                <input value={ingredientes} onChange={(event) => { setIngredientes(event.target.value) }} placeholder={"Ingredientes"}></input>
-                <p>Preparación</p>
-                <input value={preparación} onChange={(event) => { setPreparación(event.target.value) }} placeholder={"Preparación"}></input>
+                    <p>Titulo de la receta</p>
+                    <input value={tituloReceta} onChange={(event) => { setTituloReceta(event.target.value) }} placeholder={"Título"}></input>
+                    <p>Ingredientes</p>
+                    <input value={ingredientes} onChange={(event) => { setIngredientes(event.target.value) }} placeholder={"Ingredientes"}></input>
+                    <p>Preparación</p>
+                    <input value={preparación} onChange={(event) => { setPreparación(event.target.value) }} placeholder={"Preparación"}></input><br /><br />
+                    <button type="submit">Publicar!</button>
                 </form>
             </div>
         </div>
+
     )
 }
