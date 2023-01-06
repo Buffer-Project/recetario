@@ -348,3 +348,11 @@ header img {
   border-radius: 15px;
   padding: 30px;
 }
+
+.añadir-div{
+  background-color: aquamarine;
+  font-size: large;
+  border: none;
+  margin-left: 5px;
+  
+}

@@ -18,7 +18,7 @@ export default function Footer() {
                 </div>
             </div>
             <section id="subs-form">
-                <form className="sub">
+                <div className="sub">
                     <p>Suscribite para no perderte ninguna novedad!</p>
                     <p>
                         <input type="text" name="nombre" placeholder="Nombre" value="" id="campo-suscripcion-nombre"></input>
@@ -29,7 +29,7 @@ export default function Footer() {
                     <p>
                         <input id="sub-button" type="submit" value="Suscribirse"></input>
                     </p>
-                </form>
+                </div>
             </section>
 
         </footer>

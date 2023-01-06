@@ -1,19 +1,29 @@
 import { useState } from "react"
-import recetas from "./Recetas.json"
+
 
 
 
 
 export default function NuevaReceta() {
     const [tituloReceta, setTituloReceta] = useState("")
-    const [ingredientes, setIngredientes] = useState([])
-    const [preparación, setPreparación] = useState([])
+    const [ingredientes, setIngredientes] = useState([""])
+    const [preparación, setPreparación] = useState([""])
 
     const recopilar = () => {
         const nuevaReceta = {}
         nuevaReceta.nombreReceta = tituloReceta;
 
-        console.log("nueva receta: " , nuevaReceta)
+        console.log("nueva receta: ", nuevaReceta)
+    }
+
+    const añadirInput = () => {
+
+        return (
+            <div>{preparación.map(item => (
+                <input value={""} placeholder="Preparacion" ></input>
+
+            ))}</div>
+        )
     }
 
 
@@ -26,11 +36,13 @@ export default function NuevaReceta() {
                 </h1>
                 <div>
                     <p>Titulo de la receta</p>
-                    <input value={tituloReceta} onChange={(event) => { setTituloReceta(event.target.value) }} placeholder={"Título"}></input>
+                    <input className="input-nueva-receta" value={tituloReceta} onChange={(event) => { setTituloReceta(event.target.value) }} placeholder={"Título"}></input>
                     <p>Ingredientes</p>
-                    <input value={ingredientes} onChange={(event) => { setIngredientes(event.target.value) }} placeholder={"Ingredientes"}></input>
+                    <input className="input-nueva-receta" value={ingredientes} onChange={(event) => { setIngredientes(event.target.value) }} placeholder={"Ingredientes"}></input>
                     <p>Preparación</p>
-                    <input value={preparación} onChange={(event) => { setPreparación(event.target.value) }} placeholder={"Preparación"}></input><br /><br />
+                    {añadirInput()}
+                    <button className="añadir-div" onClick={() => añadirInput()}> +  </button><br /><br />
+
                     <button onClick={() => recopilar()}>Publicar!</button>
                 </div>
             </div>
@@ -38,3 +50,7 @@ export default function NuevaReceta() {
 
     )
 }
+
+
+/*
+en vez de poner el input de ingredientes tiene que haber una llamada a la funcion anadirIngredientes(), que cree divs a medida que se toque el boton + */
