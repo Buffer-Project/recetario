@@ -41,7 +41,7 @@ export default function Header() {
             </button>
          </Dialog>
          <div id="div_logo">
-            <Link to={"/"}>
+            <Link to={"./"}>
                <img id="icono_inicio" src="https://png.pngtree.com/png-vector/20210303/ourmid/pngtree-cat-paw-shape-cartoon-white-chef-hat-png-image_2987315.jpg" alt=''></img>
             </Link>
          </div>
@@ -50,10 +50,14 @@ export default function Header() {
                <li>Platos</li>
                <li>Bebidas</li>
                <li>Postres</li>
-               <Link id='boton-nuevaReceta' to={"./NuevaReceta"} ><li>Publica tu receta</li></Link>
+               <Link id='boton-nuevaReceta' to={"./NuevaReceta"} >
+                  <li>
+                     Publica tu receta
+                  </li>
+               </Link>
             </ul>
             <div id="div-searchbar">
-               <input id="searchbar" type="search" placeholder="Buscar recetas, ingredientes, y más..." ></input>
+               <input id="searchbar" type="search" placeholder="Buscar recetas, postres, ingredientes, y más..." ></input>
                <div id="div-icono-lupa">
                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrBPjW-HJAeJyvcXBJcZ-VspgyqXvfs-Nd4Kz3wug04w&s" alt="lupa"></img>
                </div>
