@@ -17,17 +17,16 @@ export default function NuevaReceta() {
     }
 
     const anadirInput = () => {
-
+        console.log("añadir input")
         return (
-            <div>{preparacion.map(item => (
+            <div>{preparacion.map(() => (
                 <input value={""} placeholder="Preparacion" ></input>
-
             ))}</div>
         )
     }
 
     const agrandarHook = () => {
-        preparacion.push("")
+        setPreparacion([...preparacion, ""])
     }
 
 
@@ -45,8 +44,7 @@ export default function NuevaReceta() {
                     <input className="input-nueva-receta" value={ingredientes} onChange={(event) => { setIngredientes(event.target.value) }} placeholder={"Ingredientes"}></input>
                     <p>Preparación</p>
                     {anadirInput()}
-                    <button className="añadir-div" onClick={ () => agrandarHook()}> +  </button><br /><br />
-
+                    <button className="añadir-div" onClick={()=>agrandarHook()}> +  </button><br /><br />
                     <button onClick={() => recopilar()}>Publicar!</button>
                 </div>
             </div>
