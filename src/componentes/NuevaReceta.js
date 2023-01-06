@@ -56,5 +56,3 @@ export default function NuevaReceta() {
 }
 
 
-/*
-en vez de poner el input de ingredientes tiene que haber una llamada a la funcion anadirIngredientes(), que cree divs a medida que se toque el boton + */
