@@ -7,7 +7,7 @@ import { useState } from "react"
 export default function NuevaReceta() {
     const [tituloReceta, setTituloReceta] = useState("")
     const [ingredientes, setIngredientes] = useState([""])
-    const [preparación, setPreparación] = useState([""])
+    const [preparacion, setPreparacion] = useState([""])
 
     const recopilar = () => {
         const nuevaReceta = {}
@@ -16,10 +16,10 @@ export default function NuevaReceta() {
         console.log("nueva receta: ", nuevaReceta)
     }
 
-    const añadirInput = () => {
+    const anadirInput = () => {
 
         return (
-            <div>{preparación.map(item => (
+            <div>{preparacion.map(item => (
                 <input value={""} placeholder="Preparacion" ></input>
 
             ))}</div>
@@ -27,7 +27,7 @@ export default function NuevaReceta() {
     }
 
     const agrandarHook = () => {
-        setPreparación(preparación.push(""))
+        preparacion.push("")
     }
 
 
@@ -44,7 +44,7 @@ export default function NuevaReceta() {
                     <p>Ingredientes</p>
                     <input className="input-nueva-receta" value={ingredientes} onChange={(event) => { setIngredientes(event.target.value) }} placeholder={"Ingredientes"}></input>
                     <p>Preparación</p>
-                    {añadirInput()}
+                    {anadirInput()}
                     <button className="añadir-div" onClick={agrandarHook()}> +  </button><br /><br />
 
                     <button onClick={() => recopilar()}>Publicar!</button>
