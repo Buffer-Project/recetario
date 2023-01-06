@@ -26,6 +26,10 @@ export default function NuevaReceta() {
         )
     }
 
+    const agrandarHook = () => {
+        setPreparación(preparación.push(""))
+    }
+
 
 
     return (
@@ -41,7 +45,7 @@ export default function NuevaReceta() {
                     <input className="input-nueva-receta" value={ingredientes} onChange={(event) => { setIngredientes(event.target.value) }} placeholder={"Ingredientes"}></input>
                     <p>Preparación</p>
                     {añadirInput()}
-                    <button className="añadir-div" onClick={() => añadirInput()}> +  </button><br /><br />
+                    <button className="añadir-div" onClick={agrandarHook()}> +  </button><br /><br />
 
                     <button onClick={() => recopilar()}>Publicar!</button>
                 </div>
