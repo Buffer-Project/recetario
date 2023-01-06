@@ -45,7 +45,7 @@ export default function NuevaReceta() {
                     <input className="input-nueva-receta" value={ingredientes} onChange={(event) => { setIngredientes(event.target.value) }} placeholder={"Ingredientes"}></input>
                     <p>Preparación</p>
                     {anadirInput()}
-                    <button className="añadir-div" onClick={agrandarHook()}> +  </button><br /><br />
+                    <button className="añadir-div" onClick={ () => agrandarHook()}> +  </button><br /><br />
 
                     <button onClick={() => recopilar()}>Publicar!</button>
                 </div>
