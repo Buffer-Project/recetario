@@ -356,3 +356,14 @@ header img {
   margin-left: 5px;
   
 }
+
+.div-ingredientes{
+  display: flex;
+  flex-direction: column;
+}
+
+.ingrediente{
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
