@@ -16,19 +16,37 @@ export default function NuevaReceta() {
         console.log("nueva receta: ", nuevaReceta)
     }
 
-    const anadirInput = () => {
-        
+    const anadirInputPreparacion = () => {
+
         return (
-            <div className=" div-ingredientes">{preparacion.map(() => (
-                <input className="ingrediente" value={""} placeholder="Preparacion" ></input>
+            <div className="div-preparacion">{preparacion.map(() => (
+                <input className="input-nuevaReceta" value={""} placeholder="Preparacion" ></input>
             ))}</div>
         )
     }
 
-    const agrandarHook = () => {
+    const agrandarHookPreparacion = () => {
         setPreparacion([...preparacion, ""])
     }
 
+    const anadirInputIngredientes = () => {
+
+        return(
+            <div>{ingredientes.map(() =>(
+                <div>
+                <input className="input-nuevaReceta" value={""} onChange={(event) => { setIngredientes(event.target.value) }} placeholder="Ingrediente"/>
+                <input className="input-nuevaReceta" value={""} onChange={(event) => { setIngredientes(event.target.value) }}placeholder="Cantidad"/> 
+                </div>
+            ) )} </div>
+        )
+
+
+    }
+
+    const agrandarHookIngredientes = () => {
+
+        setIngredientes([...ingredientes, ""])
+    }
 
 
     return (
@@ -37,14 +55,15 @@ export default function NuevaReceta() {
                 <h1>
                     Compartí tu receta!
                 </h1>
-                <div>
+                <div id="form-nuevaReceta">
                     <p>Titulo de la receta</p>
-                    <input className="input-nueva-receta" value={tituloReceta} onChange={(event) => { setTituloReceta(event.target.value) }} placeholder={"Título"}></input>
+                    <input className="input-nuevaReceta" value={tituloReceta} onChange={(event) => { setTituloReceta(event.target.value) }} placeholder={"Título"}></input>
                     <p>Ingredientes</p>
-                    <input className="input-nueva-receta" value={ingredientes} onChange={(event) => { setIngredientes(event.target.value) }} placeholder={"Ingredientes"}></input>
+                    {anadirInputIngredientes()}
+                    <button className="añadir-div" onClick={() => agrandarHookIngredientes()}> + </button>
                     <p>Preparación</p>
-                    {anadirInput()}
-                    <button className="añadir-div" onClick={()=>agrandarHook()}> +  </button><br /><br />
+                    {anadirInputPreparacion()}
+                    <button className="añadir-div" onClick={() => agrandarHookPreparacion()}> +  </button><br /><br />
                     <button onClick={() => recopilar()}>Publicar!</button>
                 </div>
             </div>

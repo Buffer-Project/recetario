@@ -350,20 +350,33 @@ header img {
 }
 
 .añadir-div{
+  flex: 1;
   background-color: aquamarine;
   font-size: large;
   border: none;
   margin-left: 5px;
+  width: 33%;
+  border-radius: 5px;
+  align-self: center;
   
 }
 
-.div-ingredientes{
+.div-preparacion{
   display: flex;
   flex-direction: column;
 }
 
-.ingrediente{
+.input-nuevaReceta{
+  flex: 1;
   margin: 5px;
   border-radius: 5px;
   border: 1px solid black;
+  max-width: 100%;
+  min-width: 200px;
+  
+}
+
+#form-nuevaReceta{
+  display: flex;
+  flex-direction: column;
 }
