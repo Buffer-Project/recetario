@@ -17,7 +17,7 @@ export default function NuevaReceta() {
     }
 
     const anadirInput = () => {
-        console.log("añadir input")
+        
         return (
             <div>{preparacion.map(() => (
                 <input value={""} placeholder="Preparacion" ></input>
