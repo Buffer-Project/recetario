@@ -16,6 +16,15 @@ export default function NuevaReceta() {
         console.log("nueva receta: ", nuevaReceta)
     }
 
+    function ArmarIngredientes(){
+        const [receta, setReceta] = useState({ingrediente: "", cantidad:"",})
+    }
+
+    const handleSave = (event) => {
+        const {ingrediente, cantidad} = event.target;
+        setReceta((receta) => ({ ...receta, [ingrediente]: cantidad }));
+    }
+
     const anadirInputPreparacion = () => {
 
         return (
@@ -33,14 +42,12 @@ export default function NuevaReceta() {
 
         return(
             <div>{ingredientes.map(() =>(
-                <div>
-                <input className="input-nuevaReceta" value={""} onChange={(event) => { setIngredientes(event.target.value) }} placeholder="Ingrediente"/>
-                <input className="input-nuevaReceta" value={""} onChange={(event) => { setIngredientes(event.target.value) }}placeholder="Cantidad"/> 
+                <div id="div-input-ingredientes">
+                <input className="input-nuevaReceta" value={""} onChange={handleSave()} placeholder="Ingrediente"/>
+                <input className="input-nuevaReceta" value={""} onChange={handleSave()}placeholder="Cantidad"/> 
                 </div>
             ) )} </div>
         )
-
-
     }
 
     const agrandarHookIngredientes = () => {
