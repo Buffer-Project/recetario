@@ -2,9 +2,12 @@ export default function Footer() {
 
     return (
         <footer id="footer">
-            <p>
-                Contacto<br /><br />Inicio<br /><br />Lorem<br /><br />Ipsum<br /><br />
-            </p>
+            <div>
+                <p>Contacto</p>
+                <p>Inicio</p>
+                <p>Lorem</p>
+                <p>Ipsum</p>
+            </div>
             <div id="redes-soc">
                 <div id="texto-redes-soc">
                     Redes sociales

@@ -8,29 +8,20 @@ export default function NuevaReceta() {
     const [tituloReceta, setTituloReceta] = useState("")
     const [ingredientes, setIngredientes] = useState([""])
     const [preparacion, setPreparacion] = useState([""])
+    
 
     const recopilar = () => {
         const nuevaReceta = {}
         nuevaReceta.nombreReceta = tituloReceta;
 
-        console.log("nueva receta: ", nuevaReceta)
-    }
-
-    function ArmarIngredientes(){
-        const [receta, setReceta] = useState({ingrediente: "", cantidad:"",})
-    }
-
-    const handleSave = (event) => {
-        const {ingrediente, cantidad} = event.target;
-        setReceta((receta) => ({ ...receta, [ingrediente]: cantidad }));
     }
 
     const anadirInputPreparacion = () => {
 
         return (
-            <div className="div-preparacion">{preparacion.map(() => (
-                <input className="input-nuevaReceta" value={""} placeholder="Preparacion" ></input>
-            ))}</div>
+            <ol className="div-preparacion">{preparacion.map((instruccion, posicion) => (
+                <li><input className="input-nuevaReceta" value={""} placeholder="Preparacion" ></input></li>
+            ))}</ol>
         )
     }
 
@@ -40,13 +31,13 @@ export default function NuevaReceta() {
 
     const anadirInputIngredientes = () => {
 
-        return(
-            <div>{ingredientes.map(() =>(
+        return (
+            <ul>{ingredientes.map(() => (
                 <div id="div-input-ingredientes">
-                <input className="input-nuevaReceta" value={""} onChange={handleSave()} placeholder="Ingrediente"/>
-                <input className="input-nuevaReceta" value={""} onChange={handleSave()}placeholder="Cantidad"/> 
+                    <li><input className="input-nuevaReceta" value={""} placeholder="Ingrediente" /></li>
+                    <input className="input-nuevaReceta" value={""} placeholder="Cantidad" />
                 </div>
-            ) )} </div>
+            ))} </ul>
         )
     }
 
