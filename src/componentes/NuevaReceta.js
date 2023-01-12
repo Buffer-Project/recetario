@@ -1,14 +1,9 @@
 import { useState } from "react"
 
-
-
-
-
 export default function NuevaReceta() {
     const [tituloReceta, setTituloReceta] = useState("")
     const [ingredientes, setIngredientes] = useState([""])
-    const [preparacion, setPreparacion] = useState([""])
-    
+    const [preparacion, setPreparacion] = useState([""]) 
 
     const recopilar = () => {
         const nuevaReceta = {}
@@ -19,15 +14,25 @@ export default function NuevaReceta() {
     const anadirInputPreparacion = () => {
 
         return (
-            <ol className="div-preparacion">{preparacion.map((instruccion, posicion) => (
-                <li><input className="input-nuevaReceta" value={""} placeholder="Preparacion" ></input></li>
-            ))}</ol>
+            <ol className="div-preparacion">
+                {preparacion.map((instruccion, posicion) => (
+                    <li><input className="input-nuevaReceta" value={instruccion} onChange={(e)=>{handleChangePreparacion(e.target.value, posicion)}} placeholder="Preparacion"/></li>
+                ))}
+            </ol>
         )
     }
+
+    const handleChangePreparacion = (nuevoValor, posicion) => {
+        const preparacionTemporal = [...preparacion]
+        preparacionTemporal[posicion] = nuevoValor
+        setPreparacion([...preparacionTemporal])
+    }
+
 
     const agrandarHookPreparacion = () => {
         setPreparacion([...preparacion, ""])
     }
+
 
     const anadirInputIngredientes = () => {
 
@@ -65,6 +70,7 @@ export default function NuevaReceta() {
                     <button onClick={() => recopilar()}>Publicar!</button>
                 </div>
             </div>
+            
         </div>
 
     )
