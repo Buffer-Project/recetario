@@ -8,7 +8,8 @@ export default function NuevaReceta() {
     const recopilar = () => {
         const nuevaReceta = {}
         nuevaReceta.nombreReceta = tituloReceta;
-
+        
+        console.log(nuevaReceta)
     }
 
     const anadirInputPreparacion = () => {
