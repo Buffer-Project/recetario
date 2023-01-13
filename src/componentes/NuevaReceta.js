@@ -34,13 +34,19 @@ export default function NuevaReceta() {
         setPreparacion([...preparacion, ""])
     }
 
+    const handleChangeIngrediente = (nuevoValor, posicion) => {
+        const ingSinCant = [...ingredientes]
+        ingSinCant[posicion] = nuevoValor
+        setPreparacion([...ingSinCant])
+    }
+
 
     const anadirInputIngredientes = () => {
 
         return (
-            <ul>{ingredientes.map(() => (
+            <ul>{ingredientes.map((ingrediente, posicion) => (
                 <div id="div-input-ingredientes">
-                    <li><input className="input-nuevaReceta" value={""} placeholder="Ingrediente" /></li>
+                    <li><input className="input-nuevaReceta" value={ingrediente} onChange={(e)=>{handleChangeIngrediente(e.target.value, posicion)}} placeholder="Ingrediente" /></li>
                     <input className="input-nuevaReceta" value={""} placeholder="Cantidad" />
                 </div>
             ))} </ul>
