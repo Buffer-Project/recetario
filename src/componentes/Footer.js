@@ -1,12 +1,15 @@
-export default function Footer() {
+import { Link } from 'react-router-dom';
+export default function Footer(){
 
     return (
         <footer id="footer">
             <div>
-                <p>Contacto</p>
-                <p>Inicio</p>
+                <Link to={"./"}>
+                <li>Inicio</li>
+                </Link>
                 <p>Lorem</p>
                 <p>Ipsum</p>
+ 
             </div>
             <div id="redes-soc">
                 <div id="texto-redes-soc">
