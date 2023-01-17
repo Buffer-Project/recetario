@@ -2,7 +2,7 @@ import { useState } from "react"
 
 export default function NuevaReceta() {
     const [tituloReceta, setTituloReceta] = useState("")
-    const [ingredientes, setIngredientes] = useState([""])
+    const [ingredientes, setIngredientes] = useState([{"ingrediente:": "", "cantidad":""}])
     const [preparacion, setPreparacion] = useState([""]) 
 
     
