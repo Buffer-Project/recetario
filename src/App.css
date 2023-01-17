@@ -384,3 +384,7 @@ header img {
 #div-input-ingredientes {
   display: flex;
 }
+
+#list-item-preparacion{
+  display: flex;
+}
