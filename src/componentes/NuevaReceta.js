@@ -45,6 +45,8 @@ export default function NuevaReceta() {
     const recopilar = () => {
         const nuevaReceta = {}
         nuevaReceta.nombreReceta = tituloReceta;
+        nuevaReceta.ingredientes = [...ingredientes]
+        nuevaReceta.preparacion = [...preparacion]
 
         console.log(nuevaReceta)
     }
