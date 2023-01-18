@@ -89,7 +89,7 @@ export default function NuevaReceta() {
                 </div>
             </div>
 
-        </div>
+                                        </div>
 
     )
 }
