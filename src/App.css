@@ -406,3 +406,7 @@ border-radius: 15px;
 border: 3px rgba(2, 0, 2, 0.849) solid
 }
 
+.lorem-ipsum-footer{
+  text-decoration: none;
+  color: black;
+}
