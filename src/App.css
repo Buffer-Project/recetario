@@ -388,3 +388,25 @@ header img {
 #list-item-preparacion{
   display: flex;
 }
+
+#div-Error404{
+  display: flex;
+  flex: 1;
+}
+
+#Cartel-Error404{
+display: flex;
+flex: 1;
+background-color: white;
+margin: 150px;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+border-radius: 15px;
+border: 3px rgba(2, 0, 2, 0.849) solid
+}
+
+.lorem-ipsum-footer{
+  text-decoration: none;
+  color: black;
+}

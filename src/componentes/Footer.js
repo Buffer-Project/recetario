@@ -4,12 +4,15 @@ export default function Footer(){
     return (
         <footer id="footer">
             <div>
-                <Link to={"./"}>
-                <li>Inicio</li>
+                <Link className='lorem-ipsum-footer' to={"./"}>
+                <p>Inicio</p>
                 </Link>
+                <a className='lorem-ipsum-footer' href='https://www.youtube.com/watch?v=018P39kGXdU' target="_blank">
                 <p>Lorem</p>
+                </a>
+                <a className='lorem-ipsum-footer' href='https://www.youtube.com/watch?v=1iIDlXFapUU' target="_blank">
                 <p>Ipsum</p>
- 
+                </a>
             </div>
             <div id="redes-soc">
                 <div id="texto-redes-soc">
