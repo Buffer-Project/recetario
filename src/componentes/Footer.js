@@ -3,16 +3,20 @@ export default function Footer(){
 
     return (
         <footer id="footer">
-            <div>
-                <Link className='lorem-ipsum-footer' to={"./"}>
+            <div className='subs-form-footer'>
+                <Link className='menu-footer' to={"./"}>
                 <p>Inicio</p>
                 </Link>
-                <a className='lorem-ipsum-footer' href='https://www.youtube.com/watch?v=018P39kGXdU' target="_blank">
-                <p>Lorem</p>
-                </a>
-                <a className='lorem-ipsum-footer' href='https://www.youtube.com/watch?v=1iIDlXFapUU' target="_blank">
-                <p>Ipsum</p>
-                </a>
+                <Link className='menu-footer' to={"/recetas"}>
+                <p>Recetas</p>
+                </Link>
+                <Link className='menu-footer' to={"/NuevaReceta"}>
+                <p>Publica tu receta</p>
+                </Link>
+                <Link className='menu-footer' to={"/Contacto"}>
+                <p>Contacto</p>
+                </Link>
+
             </div>
             <div id="redes-soc">
                 <div id="texto-redes-soc">
