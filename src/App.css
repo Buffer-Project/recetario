@@ -385,34 +385,35 @@ header img {
   display: flex;
 }
 
-#list-item-preparacion{
+#list-item-preparacion {
   display: flex;
 }
 
-#div-Error404{
+#div-Error404 {
   display: flex;
   flex: 1;
 }
 
-#Cartel-Error404{
-display: flex;
-flex: 1;
-background-color: white;
-margin: 150px;
-align-items: center;
-justify-content: center;
-flex-direction: column;
-border-radius: 15px;
-border: 3px rgba(2, 0, 2, 0.849) solid
+#Cartel-Error404 {
+  display: flex;
+  flex: 1;
+  background-color: white;
+  margin: 150px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 15px;
+  border: 3px rgba(2, 0, 2, 0.849) solid
 }
 
-.menu-footer{
+.menu-footer {
   text-decoration: none;
   color: white;
 }
 
-.subs-form-footer{
+.subs-form-footer {
+  padding: 20px;
   background-color: rgb(112, 115, 117);
-  padding: 15px 10px;
   border-radius: 15px;
+  max-height: 180px;
 }
