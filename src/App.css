@@ -406,7 +406,13 @@ border-radius: 15px;
 border: 3px rgba(2, 0, 2, 0.849) solid
 }
 
-.lorem-ipsum-footer{
+.menu-footer{
   text-decoration: none;
-  color: black;
+  color: white;
+}
+
+.subs-form-footer{
+  background-color: rgb(112, 115, 117);
+  padding: 15px 10px;
+  border-radius: 15px;
 }

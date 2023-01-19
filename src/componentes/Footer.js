@@ -3,17 +3,17 @@ export default function Footer(){
 
     return (
         <footer id="footer">
-            <div>
-                <Link className='lorem-ipsum-footer' to={"./"}>
+            <div className='subs-form-footer'>
+                <Link className='menu-footer' to={"./"}>
                 <p>Inicio</p>
                 </Link>
-                <Link className='lorem-ipsum-footer' to={"/recetas"}>
+                <Link className='menu-footer' to={"/recetas"}>
                 <p>Recetas</p>
                 </Link>
-                <Link className='lorem-ipsum-footer' to={"/NuevaReceta"}>
+                <Link className='menu-footer' to={"/NuevaReceta"}>
                 <p>Publica tu receta</p>
                 </Link>
-                <Link className='lorem-ipsum-footer' to={"/Contacto"}>
+                <Link className='menu-footer' to={"/Contacto"}>
                 <p>Contacto</p>
                 </Link>
 
