@@ -2,25 +2,24 @@ import { useState } from "react"
 
 export default function NuevaReceta() {
     const [tituloReceta, setTituloReceta] = useState("")
-    const [ingredientes, setIngredientes] = useState([""])
-    const [preparacion, setPreparacion] = useState([""]) 
+    const [ingredientes, setIngredientes] = useState([{ "ingrediente": "", "cantidad": "" }])
+    const [preparacion, setPreparacion] = useState([""])
 
-    const recopilar = () => {
-        const nuevaReceta = {}
-        nuevaReceta.nombreReceta = tituloReceta;
-        
-        console.log(nuevaReceta)
-    }
+
 
     const anadirInputPreparacion = () => {
 
         return (
             <ol className="div-preparacion">
-                {preparacion.map((instruccion, posicion) => (
-                    <li><input className="input-nuevaReceta" value={instruccion} onChange={(e)=>{handleChangePreparacion(e.target.value, posicion)}} placeholder="Preparacion"/></li>
+                {preparacion.map((item, posicion) => (
+                    <li><input className="input-nuevaReceta" value={item} onChange={(e) => { handleChangePreparacion(e.target.value, posicion) }} placeholder="Preparacion" /></li>
                 ))}
             </ol>
         )
+    }
+
+    const agrandarHookPreparacion = () => {
+        setPreparacion([...preparacion, ""])
     }
 
     const handleChangePreparacion = (nuevoValor, posicion) => {
@@ -29,19 +28,37 @@ export default function NuevaReceta() {
         setPreparacion([...preparacionTemporal])
     }
 
+    const handleChangeIngrediente = (nuevoValor, posicion) => {
+        const ingSinCant = [...ingredientes]
+        ingSinCant[posicion].ingrediente = nuevoValor
+        setIngredientes([...ingSinCant])
+        console.log(ingredientes)
+    }
 
-    const agrandarHookPreparacion = () => {
-        setPreparacion([...preparacion, ""])
+    const handleChangeCantidad = (nuevoValor, posicion) => {
+        const ingredientesConCantidad = [...ingredientes]
+        ingredientesConCantidad[posicion].cantidad = nuevoValor
+        setIngredientes([...ingredientesConCantidad])
+
+    }
+
+    const recopilar = () => {
+        const nuevaReceta = {}
+        nuevaReceta.nombreReceta = tituloReceta;
+        nuevaReceta.ingredientes = ingredientes;
+        nuevaReceta.preparacion = preparacion;
+
+        console.log(nuevaReceta)
     }
 
 
     const anadirInputIngredientes = () => {
 
         return (
-            <ul>{ingredientes.map(() => (
+            <ul>{ingredientes.map((item, posicion) => (
                 <div id="div-input-ingredientes">
-                    <li><input className="input-nuevaReceta" value={""} placeholder="Ingrediente" /></li>
-                    <input className="input-nuevaReceta" value={""} placeholder="Cantidad" />
+                    <li><input className="input-nuevaReceta" value={item.ingrediente} onChange={(e) => { handleChangeIngrediente(e.target.value, posicion) }} placeholder="Ingrediente" /></li>
+                    <input className="input-nuevaReceta" value={item.cantidad} onChange={(e) => { handleChangeCantidad(e.target.value, posicion) }} placeholder="Cantidad" />
                 </div>
             ))} </ul>
         )
@@ -49,7 +66,7 @@ export default function NuevaReceta() {
 
     const agrandarHookIngredientes = () => {
 
-        setIngredientes([...ingredientes, ""])
+        setIngredientes([...ingredientes, {"ingrediente":"", "cantidad":""}])
     }
 
 
@@ -71,8 +88,8 @@ export default function NuevaReceta() {
                     <button onClick={() => recopilar()}>Publicar!</button>
                 </div>
             </div>
-            
-        </div>
+
+                                        </div>
 
     )
 }
