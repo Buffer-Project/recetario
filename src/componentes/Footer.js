@@ -7,12 +7,16 @@ export default function Footer(){
                 <Link className='lorem-ipsum-footer' to={"./"}>
                 <p>Inicio</p>
                 </Link>
-                <a className='lorem-ipsum-footer' href='https://www.youtube.com/watch?v=018P39kGXdU' target="_blank">
-                <p>Lorem</p>
-                </a>
-                <a className='lorem-ipsum-footer' href='https://www.youtube.com/watch?v=1iIDlXFapUU' target="_blank">
-                <p>Ipsum</p>
-                </a>
+                <Link className='lorem-ipsum-footer' to={"/recetas"}>
+                <p>Recetas</p>
+                </Link>
+                <Link className='lorem-ipsum-footer' to={"/NuevaReceta"}>
+                <p>Publica tu receta</p>
+                </Link>
+                <Link className='lorem-ipsum-footer' to={"/Contacto"}>
+                <p>Contacto</p>
+                </Link>
+
             </div>
             <div id="redes-soc">
                 <div id="texto-redes-soc">
