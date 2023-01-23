@@ -11,6 +11,11 @@ export default function Header() {
    const [password, setPassword] = useState("")
    const [user, setUser] = useState({})
 
+   const [register, setRegister] = useState(true)
+   const[newuser, setNewuser] = useState("")
+   const[newpassword, setNewpassword] = useState("")
+   const[newmail, setNewmail] = useState("")
+
    const handleLogin = () => {
       for (let i = 0; i < usuarios.length; i++) {
 
@@ -23,23 +28,58 @@ export default function Header() {
       }
    }
 
-
+   const handleRegister = () => {
+      
+   }
 
 
 
    return (
       <header>
-         <Dialog onHide={() => { setVisible(false) }} visible={visible} draggable={false} dismissableMask={true} closable={false}>
-            <div>Usuario o Email</div>
-            <input value={username} onChange={(event) => { setUsername(event.target.value) }} placeholder={"Usuario"} />
-            <div>
-               Contraseña
-            </div>
-            <input type="password" value={password} onChange={(event) => { setPassword(event.target.value) }} placeholder={"Contraseña"}></input>
-            <button onClick={() => handleLogin()}>
-               Submit
-            </button>
+         <Dialog onHide={() => { setVisible() }} visible={visible} draggable={false} dismissableMask={true} closable={false}>
+            {
+               register
+                  ?
+                  <div>
+                     <div> Ingresar a Recepedia</div>
+                     <div>Usuario</div>
+                     <input value={username} onChange={(event) => { setUsername(event.target.value) }} placeholder={""} />
+                     <div>Contraseña</div>
+                     <input type="password" value={password} onChange={(event) => { setPassword(event.target.value) }} placeholder={""}></input>
+                     <button onClick={() => handleLogin()}>
+                        Submit
+                     </button>
+                     No tienes cuenta?
+                     <button onClick={() => setRegister(!register)}>
+                        Registrarse
+                     </button>
+                  </div>
+
+
+                  : <div>
+                     <div>Registrarse en Recepedia</div>
+                     <div>Usuario</div>
+                     <input value={newuser} onChange={(event) => { setNewuser(event.target.value) }} placeholder={""} />
+                     <div>Correo Electronico</div>
+                     <input value={newmail} onChange={(event) => { setNewmail(event.target.value) }} placeholder={""} />
+                     <div>Contraseña</div>
+                     <input type="password" value={newpassword} onChange={(event) => { setNewpassword(event.target.value) }} placeholder={""}></input>
+                     <div>Confirmar Contraseña</div>
+                     <input type="password" value={newpassword} onChange={(event) => { setNewpassword(event.target.value) }} placeholder={""}></input>
+                     <button onClick={() => handleRegister}>Submit</button>
+                     Tienes cuenta?
+                     <button onClick={() => setRegister(!register)}>
+                        Volver atras
+                     </button>
+                  </div>
+            }
+
+
          </Dialog>
+
+
+
+
          <div id="div_logo">
             <Link to={"./"}>
                <img id="icono_inicio" src="https://png.pngtree.com/png-vector/20210303/ourmid/pngtree-cat-paw-shape-cartoon-white-chef-hat-png-image_2987315.jpg" alt=''></img>
