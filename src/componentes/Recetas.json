@@ -40,7 +40,8 @@
             "Disponer la primer capa vainillas en la fuente. Debe quedar una capa de vainillas, una de crema, una de vainillas y por último una de crema.",
             "Espolvoreamos por arriba el cacao amargo y el chocolate semi amargo rallado o picado y a la heladera!",
             "Retirar de la heladera, y listo para comer!"
-        ]
+        ],
+        "dificultad":"3"
     },
     {
         "id": "2",
@@ -85,7 +86,8 @@
             "Agregamos el merengue encima de la crema de limón en la tartera. Con una cuchara distribuimos y damos al merengue la forma que deseamos.",
             "Poner al horno (en la bandeja más alta posible o en la parrilla del horno) bien caliente."
             
-        ]
+        ],
+        "dificultad":"4"
     },
     {
         "id": "3",

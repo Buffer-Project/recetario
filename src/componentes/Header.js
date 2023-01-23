@@ -59,7 +59,9 @@ export default function Header() {
             <div id="div-searchbar">
                <input id="searchbar" type="search" placeholder="Buscar recetas, postres, ingredientes, y más..." ></input>
                <div id="div-icono-lupa">
+                  <Link to={"./recetas"} >
                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrBPjW-HJAeJyvcXBJcZ-VspgyqXvfs-Nd4Kz3wug04w&s" alt="lupa"></img>
+                  </Link>
                </div>
             </div>
             <div onClick={() => setVisible(true)} id="boton_login-register">

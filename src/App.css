@@ -406,6 +406,7 @@ header img {
   border: 3px rgba(2, 0, 2, 0.849) solid
 }
 
+<<<<<<< Updated upstream
 .menu-footer {
   text-decoration: none;
   color: white;
@@ -416,4 +417,42 @@ header img {
   background-color: rgb(112, 115, 117);
   border-radius: 15px;
   max-height: 180px;
+=======
+.lorem-ipsum-footer {
+  text-decoration: none;
+  color: black;
+}
+
+#div-gral-ListaRecetas {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+}
+
+#contenedor-de-filtros-y-recetas {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+#div-filtros {
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  background-color: white;
+  width: 20%;
+  margin-right: 20px;
+
+
+}
+
+#dashboard-de-recetas {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  height: 600px;
+  background-color: lightgrey;
+
+>>>>>>> Stashed changes
 }
