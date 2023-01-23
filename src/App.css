@@ -406,7 +406,6 @@ header img {
   border: 3px rgba(2, 0, 2, 0.849) solid
 }
 
-<<<<<<< Updated upstream
 .menu-footer {
   text-decoration: none;
   color: white;
@@ -417,7 +416,8 @@ header img {
   background-color: rgb(112, 115, 117);
   border-radius: 15px;
   max-height: 180px;
-=======
+}
+
 .lorem-ipsum-footer {
   text-decoration: none;
   color: black;
@@ -454,5 +454,4 @@ header img {
   height: 600px;
   background-color: lightgrey;
 
->>>>>>> Stashed changes
 }
