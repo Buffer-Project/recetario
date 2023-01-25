@@ -1,10 +1,13 @@
 
+import { useLocation } from "react-router-dom"
 import recetas from "./Recetas.json"
 
 
 export default function ListaRecetas() {
 
-
+const {search} = useLocation()
+const{busqueda} = search
+console.log(search)
 
     return (
         <div id="div-gral-ListaRecetas">
