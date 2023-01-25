@@ -1,16 +1,34 @@
-export default function ListaRecetas () {
 
-    
+import recetas from "./Recetas.json"
+
+
+export default function ListaRecetas() {
+
+
 
     return (
         <div id="div-gral-ListaRecetas">
             <div id="contenedor-de-filtros-y-recetas">
                 <div id="div-filtros">
-                    filtros
+
                 </div>
+
                 <div id="dashboard-de-recetas">
-                        dashboard de recetas
+                    <div className="card-receta">
+                        <div className="card-imagenReceta">
+                            <img src={recetas[0].imagenReceta} alt="imagen de la receta">
+
+                            </img>
+                        </div>
+                        <div className="card-tituloReceta">
+                            <p>
+                                {recetas[0].nombreReceta}
+                            </p>
+                        </div>
+                    </div>
                 </div>
+
+
             </div>
         </div>
     )
