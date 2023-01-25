@@ -13,7 +13,9 @@ export default function Header() {
 
    const [register, setRegister] = useState(true)
    const[newuser, setNewuser] = useState("")
+   const [newname, setNewname] = useState("")
    const[newpassword, setNewpassword] = useState("")
+   const[cnewpassword, setCnewpassword] = useState("")
    const[newmail, setNewmail] = useState("")
 
    const handleLogin = () => {
@@ -29,8 +31,13 @@ export default function Header() {
    }
 
    const handleRegister = () => {
-      
-   }
+
+         }
+
+   const loguearse = () => {
+      setVisible(true)
+      setRegister(true)
+         }
 
 
 
@@ -41,13 +48,13 @@ export default function Header() {
                register
                   ?
                   <div>
-                     <div> Ingresar a Recepedia</div>
+                     <div className='Titulo-login'> Ingresar a Recepedia</div>
                      <div>Usuario</div>
                      <input value={username} onChange={(event) => { setUsername(event.target.value) }} placeholder={""} />
                      <div>Contraseña</div>
                      <input type="password" value={password} onChange={(event) => { setPassword(event.target.value) }} placeholder={""}></input>
                      <button onClick={() => handleLogin()}>
-                        Submit
+                        Iniciar Sesión
                      </button>
                      No tienes cuenta?
                      <button onClick={() => setRegister(!register)}>
@@ -57,16 +64,18 @@ export default function Header() {
 
 
                   : <div>
-                     <div>Registrarse en Recepedia</div>
+                     <div className='Titulo-login'>Registrarse en Recepedia</div>
                      <div>Usuario</div>
                      <input value={newuser} onChange={(event) => { setNewuser(event.target.value) }} placeholder={""} />
+                     <div>Nombre</div>
+                     <input value={newname} onChange={(event) => { setNewname(event.target.value) }} placeholder={""} />
                      <div>Correo Electronico</div>
                      <input value={newmail} onChange={(event) => { setNewmail(event.target.value) }} placeholder={""} />
                      <div>Contraseña</div>
                      <input type="password" value={newpassword} onChange={(event) => { setNewpassword(event.target.value) }} placeholder={""}></input>
                      <div>Confirmar Contraseña</div>
-                     <input type="password" value={newpassword} onChange={(event) => { setNewpassword(event.target.value) }} placeholder={""}></input>
-                     <button onClick={() => handleRegister}>Submit</button>
+                     <input type="password" value={cnewpassword} onChange={(event) => { setCnewpassword(event.target.value) }} placeholder={""}></input>
+                     <button onClick={() => handleRegister}>Registarte</button>
                      Tienes cuenta?
                      <button onClick={() => setRegister(!register)}>
                         Volver atras
@@ -102,7 +111,7 @@ export default function Header() {
                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrBPjW-HJAeJyvcXBJcZ-VspgyqXvfs-Nd4Kz3wug04w&s" alt="lupa"></img>
                </div>
             </div>
-            <div onClick={() => setVisible(true)} id="boton_login-register">
+            <div onClick={() => loguearse()} id="boton_login-register">
                {!user.name ? "Inicio de Sesión / Registro" : "Hola, " + user.name + "!"}
             </div>
          </nav>
