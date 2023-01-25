@@ -458,10 +458,42 @@ header img {
 }
 
 #dashboard-de-recetas {
-  display: flex;
+  display: grid;
+  grid-template-columns: 180px 180px 180px 180px;
+  padding: 30px;
   flex-direction: row;
-  width: 80%;
-  height: 600px;
+  width: 100%;
   background-color: lightgrey;
+  justify-content: space-around;
 
+}
+
+.card-receta {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: white;
+  max-height: 250px;
+  max-width: 180px;
+  
+}
+
+.card-imagenReceta {
+  
+  background-color: grey;
+  height: 66%;
+}
+
+.card-imagenReceta img {
+  height: 100%;
+  width: 100%;
+}
+
+.card-tituloReceta {
+  display: flex;
+  background-color: black;
+  height: 34%;
+  color: white;
+  align-items: center;
+  justify-content: center;
 }

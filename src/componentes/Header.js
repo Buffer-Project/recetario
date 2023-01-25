@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Dialog } from 'primereact/dialog';
 import usuarios from "../json/Usuarios.json"
+import usuarios from "./Usuarios.json"
+import { Link, useNavigate } from 'react-router-dom';
 
-
-import { Link } from 'react-router-dom';
 export default function Header() {
 
    const [visible, setVisible] = useState(false)
@@ -18,6 +18,7 @@ export default function Header() {
    const[cnewpassword, setCnewpassword] = useState("")
    const[newmail, setNewmail] = useState("")
 
+   const [busqueda, setBusqueda] = useState({"nombreReceta":""})
    const handleLogin = () => {
       for (let i = 0; i < usuarios.length; i++) {
 
@@ -25,22 +26,18 @@ export default function Header() {
             setUser(usuarios[i])
             setVisible(false)
          }
-
-
       }
    }
 
    const handleRegister = () => {
-
-         }
+    }
+    
+   const navigate = useNavigate();
 
    const loguearse = () => {
       setVisible(true)
       setRegister(true)
          }
-
-
-
    return (
       <header>
          <Dialog onHide={() => { setVisible() }} visible={visible} draggable={false} dismissableMask={true} closable={false}>
@@ -106,12 +103,11 @@ export default function Header() {
                </Link>
             </ul>
             <div id="div-searchbar">
-               <input id="searchbar" type="search" placeholder="Buscar recetas, postres, ingredientes, y más..." ></input>
-               <div id="div-icono-lupa">
-                  <Link to={"./recetas"} >
+               <input id="searchbar" value={busqueda} onChange={(event) => { setBusqueda(event.target.value) }} type="search" placeholder="Buscar recetas, postres, ingredientes, y más..." ></input>
+               
+               <button id="div-icono-lupa" onClick={()=>navigate("/recetas",{"nombreReceta": busqueda})}>
                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrBPjW-HJAeJyvcXBJcZ-VspgyqXvfs-Nd4Kz3wug04w&s" alt="lupa"></img>
-                  </Link>
-               </div>
+               </button>
             </div>
             <div onClick={() => loguearse()} id="boton_login-register">
                {!user.name ? "Inicio de Sesión / Registro" : "Hola, " + user.name + "!"}
