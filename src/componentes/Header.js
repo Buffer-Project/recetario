@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Dialog } from 'primereact/dialog';
-import usuarios from "./Usuarios.json"
+import usuarios from "../json/Usuarios.json"
 
 
 import { Link } from 'react-router-dom';
