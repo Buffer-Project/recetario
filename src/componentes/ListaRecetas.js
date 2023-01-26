@@ -5,9 +5,33 @@ import recetas from "./Recetas.json"
 
 export default function ListaRecetas() {
 
-const {search} = useLocation()
-const{busqueda} = search
-console.log(search)
+    const { state } = useLocation()
+    const { nombreReceta } = state;
+    const receta = recetas.filter((receta) => receta.nombreReceta === nombreReceta)[0]
+
+
+
+
+    const mostrarCards = () => {
+        return (
+
+            <div>{receta.map(item => (
+                <div className="card-receta">
+                    <div className="card-imagenReceta">
+
+                    </div>
+                    <div className="card-tituloReceta">
+                        <p>
+                            {item.nombreReceta}
+                        </p>
+                    </div>
+                </div>
+
+            ))}</div>
+
+        )
+
+    }
 
     return (
         <div id="div-gral-ListaRecetas">
@@ -17,7 +41,20 @@ console.log(search)
                 </div>
 
                 <div id="dashboard-de-recetas">
-                    <div className="card-receta">
+                    {mostrarCards()}
+                </div>
+
+
+            </div>
+        </div>
+    )
+
+}
+
+
+/*
+
+<div className="card-receta">
                         <div className="card-imagenReceta">
                             <img src={recetas[0].imagenReceta} alt="imagen de la receta">
 
@@ -29,11 +66,5 @@ console.log(search)
                             </p>
                         </div>
                     </div>
-                </div>
 
-
-            </div>
-        </div>
-    )
-
-}
+*/
