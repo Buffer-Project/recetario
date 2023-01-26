@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom"
-import ListaRecetas from "./ListaRecetas"
+import ListaRecetas from "../componentes/ListaRecetas"
 import Landing from "./Landing"
 import VisorRecetas from "./VisorRecetas"
 import NuevaReceta from "./NuevaReceta"
