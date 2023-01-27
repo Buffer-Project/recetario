@@ -1,7 +1,7 @@
 import { Rating } from 'primereact/rating';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import recetas from "./Recetas.json"
+import recetas from "../json/Recetas.json"
 export default function VisorRecetas() {
     const { id } = useParams();
     const receta = recetas.filter((receta) => receta.id===id)[0]

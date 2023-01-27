@@ -1,7 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from './componentes/Header';
-import Main from './componentes/Main';
+import Main from './vistas/Main';
 import Footer from './componentes/Footer';
 
 
