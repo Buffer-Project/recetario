@@ -16,19 +16,20 @@ export default function ListaRecetas() {
         return (
 
             <div>{receta.map(item => (
-                <div className="card-receta">
-                    <div className="card-imagenReceta">
-                        <img src={item.imagenReceta} alt="imagen de la receta">
+                
+                    <div className="card-receta">
+                        <div className="card-imagenReceta">
+                            <img src={item.imagenReceta} alt="imagen de la receta">
 
-                        </img>
+                            </img>
+                        </div>
+                        <div className="card-tituloReceta">
+                            <p>
+                                {item.nombreReceta}
+                            </p>
+                        </div>
                     </div>
-                    <div className="card-tituloReceta">
-                        <p>
-                            {item.nombreReceta}
-                        </p>
-                    </div>
-                </div>
-
+                
             ))}</div>
 
         )
