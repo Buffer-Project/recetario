@@ -7,7 +7,7 @@ export default function ListaRecetas() {
 
     const { state } = useLocation()
     const { nombreReceta } = state;
-    const receta = recetas.filter((receta) => receta.nombreReceta === nombreReceta)[0]
+    const receta = recetas.filter((receta) => receta.nombreReceta === nombreReceta)
 
 
 
@@ -18,7 +18,9 @@ export default function ListaRecetas() {
             <div>{receta.map(item => (
                 <div className="card-receta">
                     <div className="card-imagenReceta">
+                        <img src={item.imagenReceta} alt="imagen de la receta">
 
+                        </img>
                     </div>
                     <div className="card-tituloReceta">
                         <p>
@@ -66,5 +68,8 @@ export default function ListaRecetas() {
                             </p>
                         </div>
                     </div>
+
+
+                    
 
 */
