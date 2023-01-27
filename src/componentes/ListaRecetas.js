@@ -1,21 +1,13 @@
 
 import { useLocation } from "react-router-dom"
-<<<<<<< HEAD
-import recetas from "./Recetas.json"
-=======
 import recetas from "../json/Recetas.json"
->>>>>>> franco
 
 
 export default function ListaRecetas() {
 
     const { state } = useLocation()
     const { nombreReceta } = state;
-<<<<<<< HEAD
-    const receta = recetas.filter((receta) => receta.nombreReceta === nombreReceta)[0]
-=======
     const receta = recetas.filter((receta) => receta.nombreReceta === nombreReceta)
->>>>>>> franco
 
 
 
@@ -26,13 +18,9 @@ export default function ListaRecetas() {
             <div>{receta.map(item => (
                 <div className="card-receta">
                     <div className="card-imagenReceta">
-<<<<<<< HEAD
-
-=======
                         <img src={item.imagenReceta} alt="imagen de la receta">
 
                         </img>
->>>>>>> franco
                     </div>
                     <div className="card-tituloReceta">
                         <p>
@@ -81,10 +69,7 @@ export default function ListaRecetas() {
                         </div>
                     </div>
 
-<<<<<<< HEAD
-=======
 
                     
 
->>>>>>> franco
 */

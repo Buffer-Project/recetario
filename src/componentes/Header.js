@@ -1,10 +1,6 @@
 import { useState } from 'react'
 import { Dialog } from 'primereact/dialog';
-<<<<<<< HEAD
-import usuarios from "./Usuarios.json"
-=======
 import usuarios from "../json/Usuarios.json"
->>>>>>> franco
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function Header() {
@@ -13,8 +9,6 @@ export default function Header() {
    const [username, setUsername] = useState("")
    const [password, setPassword] = useState("")
    const [user, setUser] = useState({})
-<<<<<<< HEAD
-=======
 
    const [register, setRegister] = useState(true)
    const[newuser, setNewuser] = useState("")
@@ -23,7 +17,6 @@ export default function Header() {
    const[cnewpassword, setCnewpassword] = useState("")
    const[newmail, setNewmail] = useState("")
 
->>>>>>> franco
    const [busqueda, setBusqueda] = useState("")
    const handleLogin = () => {
       for (let i = 0; i < usuarios.length; i++) {
@@ -35,15 +28,13 @@ export default function Header() {
       }
    }
 
-<<<<<<< HEAD
    const navigate = useNavigate();
 
   
-=======
    const handleRegister = () => {
     }
     
-   const navigate = useNavigate();
+   
 
    const loguearse = () => {
       setVisible(true)
@@ -90,7 +81,6 @@ export default function Header() {
                   </div>
             }
 
->>>>>>> franco
 
          </Dialog>
 
