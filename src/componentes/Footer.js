@@ -34,10 +34,10 @@ export default function Footer(){
                 <div className="sub">
                     <p>Suscribite para no perderte ninguna novedad!</p>
                     <p>
-                        <input type="text" name="nombre" placeholder="Nombre" value="" id="campo-suscripcion-nombre"></input>
+                        <input type="text" name="nombre" placeholder="Nombre" id="campo-suscripcion-nombre"></input>
                     </p>
                     <p>
-                        <input type="email" name="email" placeholder="Ingresa tu email" value="" id="campo-suscripcion-mail"></input>
+                        <input type="email" name="email" placeholder="Ingresa tu email" id="campo-suscripcion-mail"></input>
                     </p>
                     <p>
                         <input id="sub-button" type="submit" value="Suscribirse"></input>

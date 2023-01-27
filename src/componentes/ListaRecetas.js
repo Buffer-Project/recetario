@@ -1,6 +1,6 @@
 
 import { useLocation } from "react-router-dom"
-import recetas from "./Recetas.json"
+import recetas from "../json/Recetas.json"
 
 
 export default function ListaRecetas() {

@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Dialog } from 'primereact/dialog';
 import usuarios from "../json/Usuarios.json"
-import usuarios from "./Usuarios.json"
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function Header() {
@@ -58,7 +57,6 @@ export default function Header() {
                         Registrarse
                      </button>
                   </div>
-
 
                   : <div>
                      <div className='Titulo-login'>Registrarse en Recepedia</div>
