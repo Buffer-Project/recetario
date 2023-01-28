@@ -1,5 +1,5 @@
 
-import { useLocation } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import recetas from "../json/Recetas.json"
 
 
@@ -8,7 +8,7 @@ export default function ListaRecetas() {
     const { state } = useLocation()
     const { nombreReceta } = state;
     const receta = recetas.filter((receta) => receta.nombreReceta === nombreReceta)
-
+    
 
 
 
@@ -16,7 +16,7 @@ export default function ListaRecetas() {
         return (
 
             <div>{receta.map(item => (
-                
+                <Link to={"/receta/" + item.id} target="_blank">
                     <div className="card-receta">
                         <div className="card-imagenReceta">
                             <img src={item.imagenReceta} alt="imagen de la receta">
@@ -29,7 +29,7 @@ export default function ListaRecetas() {
                             </p>
                         </div>
                     </div>
-                
+                </Link>
             ))}</div>
 
         )
