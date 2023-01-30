@@ -8,7 +8,7 @@ export default function ListaRecetas() {
     const { state } = useLocation()
     const { nombreReceta } = state;
     const receta = recetas.filter((receta) => receta.nombreReceta === nombreReceta)
-    
+
 
 
 
@@ -55,22 +55,3 @@ export default function ListaRecetas() {
 }
 
 
-/*
-
-<div className="card-receta">
-                        <div className="card-imagenReceta">
-                            <img src={recetas[0].imagenReceta} alt="imagen de la receta">
-
-                            </img>
-                        </div>
-                        <div className="card-tituloReceta">
-                            <p>
-                                {recetas[0].nombreReceta}
-                            </p>
-                        </div>
-                    </div>
-
-
-                    
-
-*/
