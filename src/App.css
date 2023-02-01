@@ -222,6 +222,10 @@ header img {
 
 }
 
+#div-icono-lupa :hover{
+  cursor:pointer;
+}
+
 .p-dialog-content {
   display: flex;
   flex-direction: column;
@@ -479,12 +483,13 @@ header img {
 }
 
 .card-imagenReceta {
-  
+  display: flex;
   background-color: grey;
   height: 66%;
 }
 
 .card-imagenReceta img {
+  flex: 1;
   height: 100%;
   width: 100%;
 }
@@ -496,4 +501,8 @@ header img {
   color: white;
   align-items: center;
   justify-content: center;
+}
+
+.linkReceta{
+  text-decoration: none;
 }

@@ -1,9 +1,12 @@
 import { useState } from "react"
+import { create, getAll } from "../api/recetaService"
 
 export default function NuevaReceta() {
     const [tituloReceta, setTituloReceta] = useState("")
     const [ingredientes, setIngredientes] = useState([{ "ingrediente": "", "cantidad": "" }])
     const [preparacion, setPreparacion] = useState([""])
+    console.log(getAll().then(
+        res => console.log(res)))
 
 
 
@@ -32,7 +35,7 @@ export default function NuevaReceta() {
         const ingSinCant = [...ingredientes]
         ingSinCant[posicion].ingrediente = nuevoValor
         setIngredientes([...ingSinCant])
-        console.log(ingredientes)
+
     }
 
     const handleChangeCantidad = (nuevoValor, posicion) => {
@@ -47,8 +50,9 @@ export default function NuevaReceta() {
         nuevaReceta.nombreReceta = tituloReceta;
         nuevaReceta.ingredientes = ingredientes;
         nuevaReceta.preparacion = preparacion;
+        create(nuevaReceta);
 
-        console.log(nuevaReceta)
+
     }
 
 
@@ -66,7 +70,7 @@ export default function NuevaReceta() {
 
     const agrandarHookIngredientes = () => {
 
-        setIngredientes([...ingredientes, {"ingrediente":"", "cantidad":""}])
+        setIngredientes([...ingredientes, { "ingrediente": "", "cantidad": "" }])
     }
 
 
@@ -89,7 +93,7 @@ export default function NuevaReceta() {
                 </div>
             </div>
 
-                                        </div>
+        </div>
 
     )
 }
