@@ -6,6 +6,8 @@ export default function VisorRecetas() {
     const { id } = useParams();
     const receta = recetas.filter((receta) => receta.id===id)[0]
     const [value, setValue] = useState("")
+    
+    
     const mostrarIngredientes = () => {
 
         return (
@@ -36,13 +38,13 @@ export default function VisorRecetas() {
     return (
         <div>
             <header id="header-visor">
-                <p>{receta.nombreReceta}</p>
+                <p>{receta.titulo}</p>
             </header>
             <div id="fecha-publicacion">
                 Publicado el xx/xx/xxxx
             </div>
             <div className="imagen-receta">
-                <img src={receta.imagenReceta} alt="imagen-receta"></img>
+                <img src={receta.foto} alt="imagen-receta"></img>
             </div>
 
             <div className="lista-ingredientes">

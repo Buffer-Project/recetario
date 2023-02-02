@@ -1,31 +1,39 @@
 
+import { useState } from "react"
 import { Link, useLocation } from "react-router-dom"
-import recetas from "../json/Recetas.json"
+import { getAll } from "../api/recetaService"
+
 
 
 export default function ListaRecetas() {
     
     const { state } = useLocation()
-    const { nombreReceta } = state;
-    const receta = recetas.filter((receta) => receta.nombreReceta === nombreReceta)
+    const { textoBuscado } = state || {textoBuscado: ""}
+    const [recetas, setRecetas] = useState([])
 
 
+    const recetasFiltradas = recetas.filter((receta) => receta.titulo.toLowerCase().includes(textoBuscado.toLowerCase()))
+    
+    getAll().then(
+        resultado => setRecetas(resultado.data)
+    )
+    
 
 
     const mostrarCards = () => {
         return (
 
-            <div>{receta.map(item => (
-                <Link to={"/receta/" + item.id} target="_blank" className="linkReceta">
+            <div id="dashboard-de-recetas">{recetasFiltradas.map(item => (
+                <Link to={"/receta/" + item.id} className="linkReceta">
                     <div className="card-receta">
                         <div className="card-imagenReceta">
-                            <img src={item.imagenReceta} alt="imagen de la receta">
+                            <img src={item.foto} alt="imagen de la receta">
 
                             </img>
                         </div>
                         <div className="card-tituloReceta">
                             <p>
-                                {item.nombreReceta}
+                                {item.titulo}
                             </p>
                         </div>
                     </div>
@@ -43,7 +51,7 @@ export default function ListaRecetas() {
 
                 </div>
 
-                <div id="dashboard-de-recetas">
+                <div className="contenedorRecetas">
                     {mostrarCards()}
                 </div>
 
