@@ -1,5 +1,5 @@
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { getAll } from "../api/recetaService"
 
@@ -11,12 +11,15 @@ export default function ListaRecetas() {
     const { textoBuscado } = state || {textoBuscado: ""}
     const [recetas, setRecetas] = useState([])
 
+    useEffect(()=>{
+        getAll().then(
+        resultado => setRecetas(resultado.data)
+    )},[])
+
 
     const recetasFiltradas = recetas.filter((receta) => receta.titulo.toLowerCase().includes(textoBuscado.toLowerCase()))
     
-    getAll().then(
-        resultado => setRecetas(resultado.data)
-    )
+    
     
 
 

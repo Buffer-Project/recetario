@@ -1,17 +1,30 @@
 import { Rating } from 'primereact/rating';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import recetas from "../json/Recetas.json"
+import { getById } from '../api/recetaService';
+
+
+
 export default function VisorRecetas() {
     const { id } = useParams();
-    const receta = recetas.filter((receta) => receta.id===id)[0]
     const [value, setValue] = useState("")
+    const [recetaVisualizada, setRecetaVisualizada] = useState({})
+
+    
+        getById(id).then(
+            resultado => setRecetaVisualizada(resultado.data)
+            
+        )
+    
+
     
     
+
+
     const mostrarIngredientes = () => {
 
         return (
-            <ul>{receta.ingredientes.map(item => (
+            <ul>{recetaVisualizada.ingredientes.map(item => (
                 <li>{item.cantidad} de {item.ingrediente}</li>
 
             ))}</ul>
@@ -22,7 +35,7 @@ export default function VisorRecetas() {
     const mostrarPreparacion = () => {
 
         return (
-            <ol>{receta.preparacion.map(item => (
+            <ol>{recetaVisualizada.preparacion.map(item => (
                 <li>{item}</li>
 
             ))}</ol>
@@ -38,13 +51,13 @@ export default function VisorRecetas() {
     return (
         <div>
             <header id="header-visor">
-                <p>{receta.titulo}</p>
+                <p>{recetaVisualizada.titulo}</p>
             </header>
             <div id="fecha-publicacion">
                 Publicado el xx/xx/xxxx
             </div>
             <div className="imagen-receta">
-                <img src={receta.foto} alt="imagen-receta"></img>
+                <img src={recetaVisualizada.foto} alt="imagen-receta"></img>
             </div>
 
             <div className="lista-ingredientes">
