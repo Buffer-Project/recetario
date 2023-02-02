@@ -10,3 +10,5 @@ const login = (user) => {
 const register = (user) => {
     return INSTANCE.post("/create", user)
 }
+
+export {login, register}
