@@ -106,7 +106,7 @@ export default function Header() {
             <div id="div-searchbar">
                <input id="searchbar" value={busqueda} onChange={(event) => { setBusqueda(event.target.value) }} type="search" placeholder="Buscar recetas, postres, ingredientes, y más..." ></input>
                
-               <button id="div-icono-lupa" onClick={()=>navigate("/recetas", {state: {nombreReceta : busqueda}})}>
+               <button id="div-icono-lupa" onClick={()=>navigate("/recetas", {state: {textoBuscado : busqueda}})}>
                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrBPjW-HJAeJyvcXBJcZ-VspgyqXvfs-Nd4Kz3wug04w&s" alt="lupa"></img>
                </button>
             </div>

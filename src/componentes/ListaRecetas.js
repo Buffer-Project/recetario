@@ -1,34 +1,46 @@
 
-import { useLocation } from "react-router-dom"
-import recetas from "../json/Recetas.json"
+import { useEffect, useState } from "react"
+import { Link, useLocation } from "react-router-dom"
+import { getAll } from "../api/recetaService"
+
 
 
 export default function ListaRecetas() {
-
+    
     const { state } = useLocation()
-    const { nombreReceta } = state;
-    const receta = recetas.filter((receta) => receta.nombreReceta === nombreReceta)
+    const { textoBuscado } = state || {textoBuscado: ""}
+    const [recetas, setRecetas] = useState([])
+
+    useEffect(()=>{
+        getAll().then(
+        resultado => setRecetas(resultado.data)
+    )},[])
 
 
+    const recetasFiltradas = recetas.filter((receta) => receta.titulo.toLowerCase().includes(textoBuscado.toLowerCase()))
+    
+    
+    
 
 
     const mostrarCards = () => {
         return (
 
-            <div>{receta.map(item => (
-                <div className="card-receta">
-                    <div className="card-imagenReceta">
-                        <img src={item.imagenReceta} alt="imagen de la receta">
+            <div id="dashboard-de-recetas">{recetasFiltradas.map(item => (
+                <Link to={"/receta/" + item.id} className="linkReceta">
+                    <div className="card-receta">
+                        <div className="card-imagenReceta">
+                            <img src={item.foto} alt="imagen de la receta">
 
-                        </img>
+                            </img>
+                        </div>
+                        <div className="card-tituloReceta">
+                            <p>
+                                {item.titulo}
+                            </p>
+                        </div>
                     </div>
-                    <div className="card-tituloReceta">
-                        <p>
-                            {item.nombreReceta}
-                        </p>
-                    </div>
-                </div>
-
+                </Link>
             ))}</div>
 
         )
@@ -42,7 +54,7 @@ export default function ListaRecetas() {
 
                 </div>
 
-                <div id="dashboard-de-recetas">
+                <div className="contenedorRecetas">
                     {mostrarCards()}
                 </div>
 
@@ -54,22 +66,3 @@ export default function ListaRecetas() {
 }
 
 
-/*
-
-<div className="card-receta">
-                        <div className="card-imagenReceta">
-                            <img src={recetas[0].imagenReceta} alt="imagen de la receta">
-
-                            </img>
-                        </div>
-                        <div className="card-tituloReceta">
-                            <p>
-                                {recetas[0].nombreReceta}
-                            </p>
-                        </div>
-                    </div>
-
-
-                    
-
-*/

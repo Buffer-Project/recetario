@@ -15,4 +15,4 @@ const create = (nuevaReceta) => {
     return INSTANCE.post(baseURL)
 }
 
-export {getAll, create}
+export {getAll, create, getById}
