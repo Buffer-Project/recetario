@@ -1,5 +1,5 @@
 import { Rating } from 'primereact/rating';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getById } from '../api/recetaService';
 
@@ -10,37 +10,38 @@ export default function VisorRecetas() {
     const [value, setValue] = useState("")
     const [recetaVisualizada, setRecetaVisualizada] = useState({})
 
-    
-        getById(id).then(
-            resultado => setRecetaVisualizada(resultado.data)
-            
-        )
-    
 
-    
-    
+    getById(id).then(
+        resultado => setRecetaVisualizada(resultado.data)
+
+    )
+
+
+
+
 
 
     const mostrarIngredientes = () => {
+        if (recetaVisualizada.ingredientes) {
+            return (
+                <ul>{recetaVisualizada.ingredientes.map(item => (
+                    <li>{item.cantidad} de {item.ingrediente}</li>
 
-        return (
-            <ul>{recetaVisualizada.ingredientes.map(item => (
-                <li>{item.cantidad} de {item.ingrediente}</li>
-
-            ))}</ul>
-        )
+                ))}</ul>
+            )
+        }
 
     }
 
     const mostrarPreparacion = () => {
+        if (recetaVisualizada.preparacion) {
+            return (
+                <ol>{recetaVisualizada.preparacion.map(item => (
+                    <li>{item}</li>
 
-        return (
-            <ol>{recetaVisualizada.preparacion.map(item => (
-                <li>{item}</li>
-
-            ))}</ol>
-        )
-
+                ))}</ol>
+            )
+        }
     }
 
 
