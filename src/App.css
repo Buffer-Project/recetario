@@ -261,7 +261,7 @@ header img {
 }
 
 .header-visor p {
-  padding-left: 20px;
+  margin-left: 40px;
   
 }
 
@@ -518,9 +518,13 @@ header img {
 
 #sk-ingredientes {
   margin: 40px;
-  padding: 10px;
+  
 }
 
 #sk-titulo{
-  margin-left: 20px;
+  margin-left: 40px;
+}
+
+#sk-preparacion{
+  margin:40px;
 }

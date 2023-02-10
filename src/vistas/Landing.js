@@ -2,7 +2,7 @@ export default function Landing() {
 
     return (
         <div id="landing">
-            
+
             <section id="carrouselDeRecetas">
                 <p>aca iria el carrousel de imagenes de recetas</p>
                 <div>

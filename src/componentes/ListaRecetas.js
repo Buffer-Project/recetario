@@ -6,37 +6,40 @@ import { getAll } from "../api/recetaService"
 
 
 export default function ListaRecetas() {
-    
+
     const { state } = useLocation()
-    const { textoBuscado } = state || {textoBuscado: ""}
+    const { textoBuscado } = state || { textoBuscado: "" }
     const [recetas, setRecetas] = useState([])
 
-    useEffect(()=>{
+    useEffect(() => {
         getAll().then(
-        resultado => setRecetas(resultado.data)
-    )},[])
+            (resultado) => setRecetas(resultado.data)
+        )
+    }, [recetas])
+
+    const recetasSinErrores = recetas.filter((receta) => receta.titulo != null && receta.preparacion != null && receta.ingredientes != null)
+    
+    const recetasFiltradas = recetasSinErrores.filter((receta) => receta.titulo.toLowerCase().includes(textoBuscado.toLowerCase()))
 
 
-    const recetasFiltradas = recetas.filter((receta) => receta.titulo.toLowerCase().includes(textoBuscado.toLowerCase()))
-    
-    
-    
+
+
 
 
     const mostrarCards = () => {
         return (
 
-            <div id="dashboard-de-recetas">{recetasFiltradas.map(item => (
-                <Link to={"/receta/" + item.id} className="linkReceta">
+            <div id="dashboard-de-recetas">{recetasFiltradas.map(receta => (
+                <Link to={"/receta/" + receta.id} className="linkReceta">
                     <div className="card-receta">
                         <div className="card-imagenReceta">
-                            <img src={item.foto} alt="imagen de la receta">
+                            <img src={receta.foto} alt="imagen de la receta">
 
                             </img>
                         </div>
                         <div className="card-tituloReceta">
                             <p>
-                                {item.titulo}
+                                {receta.titulo}
                             </p>
                         </div>
                     </div>

@@ -74,7 +74,7 @@ export default function VisorRecetas() {
                         <p>{recetaVisualizada.titulo}</p>
                     </header>
                     <div className="imagen-receta">
-                        <img src={recetaVisualizada.foto} alt="imagen-receta" />
+                        <img src={recetaVisualizada.foto} alt="imagen de "  />
                     </div>
 
                     <div className="lista-ingredientes">
