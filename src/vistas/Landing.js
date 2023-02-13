@@ -1,22 +1,30 @@
+import { useEffect, useState } from "react"
+import { getAll } from "../api/recetaService"
+import { Galleria } from 'primereact/galleria';
+
 export default function Landing() {
+
+    const [recetas, setRecetas] = useState([])
+
+    useEffect(() => {
+        getAll().then(
+            (res) => setRecetas(res.data)
+        )
+    }
+    )
+
+    const itemTemplate = (item) => {
+        return <img src={item.foto} alt={item.titulo} style={{ width: '100%', display: 'block' }} />;
+    }
+
 
     return (
         <div id="landing">
 
-            <section id="carrouselDeRecetas">
-                <p>aca iria el carrousel de imagenes de recetas</p>
-                <div>
-                    <h3 className="autorReceta">Autor de la receta</h3>
-                </div>
-                <div className="imagenesDeRecetas">
-
-                </div>
-                <div className="nombreDeReceta">
-                    <p>
-                        Nombre de la receta
-                    </p>
-                </div>
-            </section>
+            <div className="card">
+                <Galleria className="galeria" value={recetas} numVisible={5} circular style={{ maxWidth: '300px' }}
+                    showThumbnails={false} showItemNavigators item={itemTemplate} />
+            </div>
 
         </div>
 

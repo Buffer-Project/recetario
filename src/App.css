@@ -23,7 +23,12 @@ body {
 }
 
 #landing {
+  display: flex;
   width: 100%;
+  background-color: black;
+  align-items: center;
+  justify-content: center;
+  
 }
 
 header {
@@ -527,4 +532,9 @@ header img {
 
 #sk-preparacion{
   margin:40px;
+}
+
+.card{
+  align-items: center;
+  justify-content: center;
 }
