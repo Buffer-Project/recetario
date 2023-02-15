@@ -26,8 +26,9 @@ export default function Header() {
       user.password = password;
       login(user).then(
          () => setVisible(false)
-      )
-
+      ).catch(e => {
+         console.log(e)
+      })
    }
 
    const navigate = useNavigate();
