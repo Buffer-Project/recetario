@@ -1,81 +1,91 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Dialog } from 'primereact/dialog';
-import usuarios from "../json/Usuarios.json"
 import { Link, useNavigate } from 'react-router-dom';
+import UserContext from '../Context/UserContext';
+import { login, register } from '../api/userService';
 
 export default function Header() {
-
+   const { currentUser, changeUser } = useContext(UserContext)
    const [visible, setVisible] = useState(false)
    const [username, setUsername] = useState("")
    const [password, setPassword] = useState("")
-   const [user, setUser] = useState({})
 
-   const [register, setRegister] = useState(true)
-   const[newuser, setNewuser] = useState("")
-   const [newname, setNewname] = useState("")
-   const[newpassword, setNewpassword] = useState("")
-   const[cnewpassword, setCnewpassword] = useState("")
-   const[newmail, setNewmail] = useState("")
+
+   const [estaRegistrado, setEstaRegistrado] = useState(true)
+   const [newUser, setNewUser] = useState("")
+   const [newName, setNewName] = useState("")
+   const [newPassword, setNewPassword] = useState("")
+   const [cNewPassword, setCNewPassword] = useState("")
+   const [newMail, setNewMail] = useState("")
 
    const [busqueda, setBusqueda] = useState("")
-   const handleLogin = () => {
-      for (let i = 0; i < usuarios.length; i++) {
 
-         if (usuarios[i].password === password && usuarios[i].username === username) {
-            setUser(usuarios[i])
-            setVisible(false)
-         }
-      }
+   const handleLogin = () => {
+      const user = {}
+      user.username = username;
+      user.password = password;
+      login(user).then(
+         () => setVisible(false)
+      )
+
    }
 
    const navigate = useNavigate();
 
-  
+
    const handleRegister = () => {
-    }
-    
-   
+      const user = {}
+      user.username = newUser
+      user.password = newPassword
+      register(user);
+
+
+
+   }
+
+
 
    const loguearse = () => {
       setVisible(true)
-      setRegister(true)
-         }
+      setEstaRegistrado(true)
+   }
    return (
       <header>
-         <Dialog onHide={() => { setVisible() }} visible={visible} draggable={false} dismissableMask={true} closable={false}>
+         <Dialog onHide={() => { setVisible(false) }} visible={visible} draggable={false} dismissableMask={true} closable={false}>
             {
-               register
+               estaRegistrado
                   ?
                   <div>
                      <div className='Titulo-login'> Ingresar a Recepedia</div>
                      <div>Usuario</div>
-                     <input value={username} onChange={(event) => { setUsername(event.target.value) }} placeholder={""} />
+                     <input value={username} onChange={(event) => { setUsername(event.target.value) }} placeholder={"Usuario"} />
                      <div>Contraseña</div>
-                     <input type="password" value={password} onChange={(event) => { setPassword(event.target.value) }} placeholder={""}></input>
+                     <input type="password" value={password} onChange={(event) => { setPassword(event.target.value) }} placeholder={"Contraseña"}></input>
                      <button onClick={() => handleLogin()}>
                         Iniciar Sesión
                      </button>
                      No tienes cuenta?
-                     <button onClick={() => setRegister(!register)}>
+                     <button onClick={() => setEstaRegistrado(!estaRegistrado)}>
                         Registrarse
                      </button>
                   </div>
 
-                  : <div>
+                  :
+                  <div>
                      <div className='Titulo-login'>Registrarse en Recepedia</div>
                      <div>Usuario</div>
-                     <input value={newuser} onChange={(event) => { setNewuser(event.target.value) }} placeholder={""} />
+                     <input value={newUser} onChange={(event) => { setNewUser(event.target.value) }} placeholder={"Usuario"} />
                      <div>Nombre</div>
-                     <input value={newname} onChange={(event) => { setNewname(event.target.value) }} placeholder={""} />
+                     <input value={newName} onChange={(event) => { setNewName(event.target.value) }} placeholder={"Nombre"} />
                      <div>Correo Electronico</div>
-                     <input value={newmail} onChange={(event) => { setNewmail(event.target.value) }} placeholder={""} />
+                     <input value={newMail} onChange={(event) => { setNewMail(event.target.value) }} placeholder={"Email"} />
                      <div>Contraseña</div>
-                     <input type="password" value={newpassword} onChange={(event) => { setNewpassword(event.target.value) }} placeholder={""}></input>
+                     <input type="password" value={newPassword} onChange={(event) => { setNewPassword(event.target.value) }} placeholder={"Contraseña"}></input>
                      <div>Confirmar Contraseña</div>
-                     <input type="password" value={cnewpassword} onChange={(event) => { setCnewpassword(event.target.value) }} placeholder={""}></input>
+                     <input type="password" value={cNewPassword} onChange={(event) => { setCNewPassword(event.target.value) }} placeholder={"Confirmar Contraseña"}></input>
                      <button onClick={() => handleRegister}>Registarte</button>
                      Tienes cuenta?
-                     <button onClick={() => setRegister(!register)}>
+                     <button onClick={() => setEstaRegistrado(!estaRegistrado)}>
                         Volver atras
                      </button>
                   </div>
@@ -105,13 +115,13 @@ export default function Header() {
             </ul>
             <div id="div-searchbar">
                <input id="searchbar" value={busqueda} onChange={(event) => { setBusqueda(event.target.value) }} type="search" placeholder="Buscar recetas, postres, ingredientes, y más..." ></input>
-               
-               <button id="div-icono-lupa" onClick={()=>navigate("/recetas", {state: {textoBuscado : busqueda}})}>
+
+               <button id="div-icono-lupa" onClick={() => navigate("/recetas", { state: { textoBuscado: busqueda } })}>
                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrBPjW-HJAeJyvcXBJcZ-VspgyqXvfs-Nd4Kz3wug04w&s" alt="lupa"></img>
                </button>
             </div>
             <div onClick={() => loguearse()} id="boton_login-register">
-               {!user.name ? "Inicio de Sesión / Registro" : "Hola, " + user.name + "!"}
+               {!currentUser ? "Inicio de Sesión / Registro" : "Hola, " + currentUser + "!"}
             </div>
          </nav>
       </header>

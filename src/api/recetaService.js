@@ -12,7 +12,7 @@ const getById = (id) => {
 }
 
 const create = (nuevaReceta) => {
-    return INSTANCE.post(baseURL)
+    return INSTANCE.post(baseURL, nuevaReceta)
 }
 
 export {getAll, create, getById}
