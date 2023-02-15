@@ -5,6 +5,7 @@ import UserContext from '../Context/UserContext';
 import { login, register } from '../api/userService';
 
 export default function Header() {
+
    const { currentUser, changeUser } = useContext(UserContext)
    const [visible, setVisible] = useState(false)
    const [username, setUsername] = useState("")
@@ -17,7 +18,6 @@ export default function Header() {
    const [newPassword, setNewPassword] = useState("")
    const [cNewPassword, setCNewPassword] = useState("")
    const [newMail, setNewMail] = useState("")
-
    const [busqueda, setBusqueda] = useState("")
 
    const handleLogin = () => {
@@ -25,10 +25,15 @@ export default function Header() {
       user.username = username;
       user.password = password;
       login(user).then(
-         () => setVisible(false)
-      ).catch(e => {
-         console.log(e)
-      })
+         () => {
+            setVisible(false)
+            currentUser = user
+            changeUser(user)
+            console.log("user: ", currentUser)
+         }
+
+      )
+
    }
 
    const navigate = useNavigate();

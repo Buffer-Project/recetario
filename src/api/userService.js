@@ -1,6 +1,7 @@
 import getApiInstance from "./apiService";
 
 const INSTANCE = getApiInstance()
+// eslint-disable-next-line
 const baseURL = "users/"
 
 const login = (user) => {
