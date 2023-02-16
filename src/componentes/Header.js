@@ -25,9 +25,12 @@ export default function Header() {
       user.username = username;
       user.password = password;
       login(user).then(
-         () => {
+         (res) => {
             setVisible(false)
-            changeUser(user)
+            changeUser(res.data)
+            console.log(res.data)
+            
+
          }
 
       )
@@ -52,7 +55,7 @@ export default function Header() {
    const loguearse = () => {
       setVisible(true)
       setEstaRegistrado(true)
-      console.log("current user: ", currentUser)
+
    }
    return (
       <header>
@@ -126,7 +129,7 @@ export default function Header() {
                </button>
             </div>
             <div onClick={() => loguearse()} id="boton_login-register">
-               {/* {
+               {
                   currentUser.name
 
                      ?
@@ -136,7 +139,7 @@ export default function Header() {
                      :
 
                      "Inicio de Sesión / Registro"
-               } */}
+               }
             </div>
          </nav>
       </header>
