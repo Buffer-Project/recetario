@@ -1,16 +1,16 @@
-import { useContext, useState } from 'react'
+import { useContext, useRef, useState } from 'react'
 import { Dialog } from 'primereact/dialog';
 import { Link, useNavigate } from 'react-router-dom';
 import UserContext from '../Context/UserContext';
 import { login, register } from '../api/userService';
-
+import { Toast } from 'primereact/toast';
 export default function Header() {
 
    const { currentUser, changeUser } = useContext(UserContext)
    const [visible, setVisible] = useState(false)
    const [username, setUsername] = useState("")
    const [password, setPassword] = useState("")
-
+   const toast = useRef(null);
 
    const [estaRegistrado, setEstaRegistrado] = useState(true)
    const [newUser, setNewUser] = useState("")
@@ -28,8 +28,8 @@ export default function Header() {
          (res) => {
             setVisible(false)
             changeUser(res.data)
-            console.log(res.data)
-            
+
+
 
          }
 
@@ -44,7 +44,19 @@ export default function Header() {
       const user = {}
       user.username = newUser
       user.password = newPassword
-      register(user);
+      register(user).then(
+         (res) => {
+            changeUser(user)
+            toast.current.show({
+               severity: 'success',
+               summary: 'Exito!',
+               detail: 'Se ha registrado exitosamente'
+            })
+            setVisible(false)
+         },
+         () => { }
+      )
+         console.log(res)
 
 
 
@@ -142,6 +154,7 @@ export default function Header() {
                }
             </div>
          </nav>
+         <Toast ref={toast} />
       </header>
 
    )
