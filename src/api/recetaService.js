@@ -15,5 +15,8 @@ const createReceta = (nuevaReceta) => {
     return INSTANCE.post(baseURL, nuevaReceta)
 }
 
+const updateReceta = (receta) => {
+    return INSTANCE.patch(baseURL+receta.id, receta)
+}
 
-export {getAllRecetas, createReceta, getRecetaById}
+export {getAllRecetas, createReceta, getRecetaById, updateReceta}
