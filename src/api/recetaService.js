@@ -18,5 +18,9 @@ const createReceta = (nuevaReceta) => {
 const updateReceta = (receta) => {
     return INSTANCE.patch(baseURL+receta.id, receta)
 }
+const deleteReceta = (id) => {
+    return INSTANCE.delete(baseURL+id)
+}
 
 export {getAllRecetas, createReceta, getRecetaById, updateReceta}
+export {getAllRecetas, createReceta, getRecetaById, deleteReceta}
