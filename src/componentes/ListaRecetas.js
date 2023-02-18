@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
-import { getAll } from "../api/recetaService"
+import { getAllRecetas } from "../api/recetaService"
 
 
 
@@ -12,7 +12,7 @@ export default function ListaRecetas() {
     const [recetas, setRecetas] = useState([])
 
     useEffect(() => {
-        getAll().then(
+        getAllRecetas().then(
             (resultado) => setRecetas(resultado.data)
         )
     }, [recetas])

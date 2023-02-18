@@ -1,7 +1,7 @@
 import { Rating } from 'primereact/rating';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getById } from '../api/recetaService';
+import { getRecetaById } from '../api/recetaService';
 import { Skeleton } from 'primereact/skeleton';
 
 export default function VisorRecetas() {
@@ -10,7 +10,7 @@ export default function VisorRecetas() {
     const [recetaVisualizada, setRecetaVisualizada] = useState({})
     const [isLoading, setIsLoading] = useState(true)
     useEffect(() => {
-        getById(id).then(
+        getRecetaById(id).then(
             (resultado) => {
                 setRecetaVisualizada(resultado.data)
                 setIsLoading(false)

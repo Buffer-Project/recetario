@@ -3,16 +3,17 @@ import getApiInstance from "./apiService";
 const INSTANCE = getApiInstance()
 const baseURL = "recetas/"
 
-const getAll = () => {
+const getAllRecetas = () => {
     return INSTANCE.get(baseURL)
 }
 
-const getById = (id) => {
+const getRecetaById = (id) => {
     return INSTANCE.get(baseURL + id)
 }
 
-const create = (nuevaReceta) => {
+const createReceta = (nuevaReceta) => {
     return INSTANCE.post(baseURL, nuevaReceta)
 }
 
-export {getAll, create, getById}
+
+export {getAllRecetas, createReceta, getRecetaById}

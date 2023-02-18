@@ -1,5 +1,5 @@
 import { useContext, useState } from "react"
-import { create } from "../api/recetaService"
+import { createReceta } from "../api/recetaService"
 import React, { useRef } from 'react';
 import { Button } from 'primereact/button';
 import { Toast } from 'primereact/toast';
@@ -72,7 +72,7 @@ export default function NuevaReceta() {
         nuevaReceta.preparacion = preparacion
         nuevaReceta.autor = currentUser.name
 
-        create(nuevaReceta).then(
+        createReceta(nuevaReceta).then(
             (res) => {
                 toast.current.show({
                     severity: 'success',

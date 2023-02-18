@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getAll } from "../api/recetaService"
+import { getAllRecetas } from "../api/recetaService"
 import { Galleria } from 'primereact/galleria';
 
 export default function Landing() {
@@ -7,7 +7,7 @@ export default function Landing() {
     const [recetas, setRecetas] = useState([])
 
     useEffect(() => {
-        getAll().then(
+        getAllRecetas().then(
             (res) => setRecetas(res.data)
         )
     }
