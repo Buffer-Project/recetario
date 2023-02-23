@@ -56,9 +56,20 @@ export default function Header() {
          },
          () => { }
       )
-         console.log(res)
 
 
+
+
+   }
+
+   const handleClick = () => {
+
+      if (currentUser.tipo === "guest") {
+         setVisible(true)
+         setEstaRegistrado(true)
+      } else {
+         navigate("/NuevaReceta")
+      }
 
    }
 
@@ -127,11 +138,11 @@ export default function Header() {
                <li>Platos</li>
                <li>Bebidas</li>
                <li>Postres</li>
-               <Link id='boton-nuevaReceta' to={"./NuevaReceta"} >
+               <div id='boton-nuevaReceta' onClick={() => handleClick()}>
                   <li>
                      Publica tu receta
                   </li>
-               </Link>
+               </div>
             </ul>
             <div id="div-searchbar">
                <input id="searchbar" value={busqueda} onChange={(event) => { setBusqueda(event.target.value) }} type="search" placeholder="Buscar recetas, postres, ingredientes, y más..." ></input>
