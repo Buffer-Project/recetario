@@ -1,23 +1,34 @@
 import { Rating } from 'primereact/rating';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getRecetaById } from '../api/recetaService';
 import { Skeleton } from 'primereact/skeleton';
+import UserContext from '../Context/UserContext';
+
 
 export default function VisorRecetas() {
+    const { currentUser, } = useContext(UserContext)
     const { id } = useParams();
     const [value, setValue] = useState("")
     const [recetaVisualizada, setRecetaVisualizada] = useState({})
     const [isLoading, setIsLoading] = useState(true)
+    const [esElAutor, setEsElAutor] = useState(false)
+
+    recetaVisualizada.autor = { nombre: "Franco" }
+
     useEffect(() => {
         getRecetaById(id).then(
             (resultado) => {
+
                 setRecetaVisualizada(resultado.data)
                 setIsLoading(false)
+                if (currentUser.name === recetaVisualizada.autor.nombre) {
+                    setEsElAutor(true)
+                }
             }
 
         )
-    }, [id]
+    }, []
     )
 
     const mostrarIngredientes = () => {
@@ -69,7 +80,7 @@ export default function VisorRecetas() {
                             <p>{recetaVisualizada.titulo}</p>
                         </header>
                         <div>
-                            <p>Hecha por {recetaVisualizada.autor}</p>
+                            <p>Hecha por {recetaVisualizada.autor.nombre}</p>
                         </div>
                         <div className="imagen-receta">
                             <img src={recetaVisualizada.foto} alt="imagen de " />
@@ -83,6 +94,15 @@ export default function VisorRecetas() {
                             <p id="titulo-preparacion"><b>Preparacion:</b></p>
                             {mostrarPreparacion()}
                         </div>
+                        {
+                            esElAutor
+
+                                ?
+                                <button className='boton-editar-receta' onClick={() => null}>Editar Receta</button>
+                                :
+                                null
+
+                        }
                     </div>
             }
             <div className='rating'>
@@ -90,13 +110,6 @@ export default function VisorRecetas() {
                 <Rating value={value} onChange={(e) => setValue(e.value)} stars={5} cancel={false} />
             </div>
         </div>
-
-
-
-
-
-
-
     )
 }
 

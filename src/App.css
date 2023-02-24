@@ -538,3 +538,10 @@ header img {
   align-items: center;
   justify-content: center;
 }
+
+.boton-editar-receta{
+  background-color: gray;
+  border-radius: 15px;
+  margin-left: 40px;
+
+}
