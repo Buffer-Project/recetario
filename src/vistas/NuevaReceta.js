@@ -1,19 +1,23 @@
-import { useContext, useState } from "react"
-import { createReceta } from "../api/recetaService"
+import { useContext, useEffect, useState } from "react"
+import { createReceta, getRecetaById } from "../api/recetaService"
 import React, { useRef } from 'react';
 import { Button } from 'primereact/button';
 import { Toast } from 'primereact/toast';
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import UserContext from "../Context/UserContext";
 
 
 export default function NuevaReceta() {
-    const {currentUser, } = useContext(UserContext)
+    const { currentUser, } = useContext(UserContext)
     const [tituloReceta, setTituloReceta] = useState("")
     const [ingredientes, setIngredientes] = useState([{ "ingrediente": "", "cantidad": "" }])
     const [preparacion, setPreparacion] = useState([""])
     const toast = useRef(null);
     const navigate = useNavigate()
+    const { state } = useLocation()
+    const { idAEditar } = state
+    const [recetaEditada, setRecetaEditada] = useState({})
+    const [habilitarEdicion, setHabilitarEdicion] = useState(false)
 
 
 
@@ -79,7 +83,7 @@ export default function NuevaReceta() {
                     summary: 'Exito!',
                     detail: 'La receta ha sido cargada correctamente'
                 });
-                
+
                 setTimeout(() => navigate("/receta/" + res.data.id), 3000)
             },
             (error) => {
@@ -120,28 +124,62 @@ export default function NuevaReceta() {
 
         setIngredientes([...ingredientes, { "ingrediente": "", "cantidad": "" }])
     }
+    useEffect(
+        () => {
+            getRecetaById(idAEditar).then(
+                (res) => setRecetaEditada(res.data)
+            )
+        }, [])
+
+
+
+
+
+
+
+
+
+
+
+    if (recetaEditada != {}) {
+        setHabilitarEdicion(true)
+    }
 
 
 
 
     return (
         <div id="div-nueva-receta">
-            <div id="nueva-receta">
-                <h1>
-                    Compartí tu receta!
-                </h1>
-                <div id="form-nuevaReceta">
-                    <p>Titulo de la receta</p>
-                    <input className="input-nuevaReceta" value={tituloReceta} onChange={(event) => { setTituloReceta(event.target.value) }} placeholder={"Título"}></input>
-                    <p>Ingredientes</p>
-                    {anadirInputIngredientes()}
-                    <button className="añadir-div" onClick={() => agrandarHookIngredientes()}> + </button>
-                    <p>Preparación</p>
-                    {anadirInputPreparacion()}
-                    <button className="añadir-div" onClick={() => agrandarHookPreparacion()}> +  </button><br /><br />
-                    <Button onClick={() => crearReceta()} label="Publicar" />
-                </div>
-            </div>
+            {
+                habilitarEdicion
+
+                    ?
+
+                    <div className="nueva-receta">
+                        Edita Tu Receta!
+                    </div>
+
+                    :
+
+                    <div className="nueva-receta">
+                        <h1>
+                            Compartí tu receta!
+                        </h1>
+                        <div id="form-nuevaReceta">
+                            <p>Titulo de la receta</p>
+                            <input className="input-nuevaReceta" value={tituloReceta} onChange={(event) => { setTituloReceta(event.target.value) }} placeholder={"Título"}></input>
+                            <p>Ingredientes</p>
+                            {anadirInputIngredientes()}
+                            <button className="añadir-div" onClick={() => agrandarHookIngredientes()}> + </button>
+                            <p>Preparación</p>
+                            {anadirInputPreparacion()}
+                            <button className="añadir-div" onClick={() => agrandarHookPreparacion()}> +  </button><br /><br />
+                            <Button onClick={() => crearReceta()} label="Publicar" />
+                        </div>
+                    </div>
+
+
+            }
             <Toast ref={toast} />
         </div>
 

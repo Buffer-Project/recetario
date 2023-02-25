@@ -1,6 +1,6 @@
 import { Rating } from 'primereact/rating';
 import { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { getRecetaById } from '../api/recetaService';
 import { Skeleton } from 'primereact/skeleton';
 import UserContext from '../Context/UserContext';
@@ -13,6 +13,7 @@ export default function VisorRecetas() {
     const [recetaVisualizada, setRecetaVisualizada] = useState({})
     const [isLoading, setIsLoading] = useState(true)
     const [esElAutor, setEsElAutor] = useState(false)
+    const navigate = useNavigate()
 
     recetaVisualizada.autor = { nombre: "Franco" }
 
@@ -54,7 +55,10 @@ export default function VisorRecetas() {
         }
     }
 
+    const editarReceta = () => {
 
+        navigate(`/EditarReceta/${id}`,{ state: { recetaAEditar : id } })
+    }
 
 
 
@@ -98,7 +102,7 @@ export default function VisorRecetas() {
                             esElAutor
 
                                 ?
-                                <button className='boton-editar-receta' onClick={() => null}>Editar Receta</button>
+                                <button className='boton-editar-receta' onClick={() => editarReceta()}>Editar Receta</button>
                                 :
                                 null
 

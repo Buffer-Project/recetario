@@ -344,7 +344,7 @@ header img {
   width: 100%;
 }
 
-#nueva-receta {
+.nueva-receta {
   display: flex;
   flex: 1;
   flex-direction: column;

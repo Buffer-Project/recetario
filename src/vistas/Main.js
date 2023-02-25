@@ -15,6 +15,7 @@ export default function Main() {
                 <Route exact path={"/NuevaReceta"} element={<NuevaReceta />} />
                 <Route exact path={"/Contacto"} element={<Contacto />} />
                 <Route path={"*"} element={<Error404 />} />
+                <Route exact path={`/EditarReceta/:id`} element={<NuevaReceta />} />
             </Routes>
         </main>
 
