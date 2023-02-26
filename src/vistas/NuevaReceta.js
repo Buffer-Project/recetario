@@ -15,13 +15,7 @@ export default function NuevaReceta() {
     const toast = useRef(null);
     const navigate = useNavigate()
     const { state } = useLocation()
-    const { idAEditar } = state
-    const [recetaEditada, setRecetaEditada] = useState({})
-    const [habilitarEdicion, setHabilitarEdicion] = useState(false)
-
-
-
-
+    const { recetaAEditar } = state
 
     const anadirInputPreparacion = () => {
 
@@ -124,62 +118,44 @@ export default function NuevaReceta() {
 
         setIngredientes([...ingredientes, { "ingrediente": "", "cantidad": "" }])
     }
+
     useEffect(
         () => {
-            getRecetaById(idAEditar).then(
-                (res) => setRecetaEditada(res.data)
-            )
-        }, [])
+            if (recetaAEditar != undefined) {
+                getRecetaById(recetaAEditar).then(
+                    (res) => {
+                        setTituloReceta(res.data.titulo)
+                        setIngredientes(res.data.ingredientes)
+                        setPreparacion(res.data.preparacion)
+                    
+                    }
 
-
-
-
-
-
-
-
-
-
-
-    if (recetaEditada != {}) {
-        setHabilitarEdicion(true)
-    }
-
-
-
+                )
+            }
+        }, [recetaAEditar]
+    )
 
     return (
         <div id="div-nueva-receta">
-            {
-                habilitarEdicion
-
-                    ?
-
-                    <div className="nueva-receta">
-                        Edita Tu Receta!
-                    </div>
-
-                    :
-
-                    <div className="nueva-receta">
-                        <h1>
-                            Compartí tu receta!
-                        </h1>
-                        <div id="form-nuevaReceta">
-                            <p>Titulo de la receta</p>
-                            <input className="input-nuevaReceta" value={tituloReceta} onChange={(event) => { setTituloReceta(event.target.value) }} placeholder={"Título"}></input>
-                            <p>Ingredientes</p>
-                            {anadirInputIngredientes()}
-                            <button className="añadir-div" onClick={() => agrandarHookIngredientes()}> + </button>
-                            <p>Preparación</p>
-                            {anadirInputPreparacion()}
-                            <button className="añadir-div" onClick={() => agrandarHookPreparacion()}> +  </button><br /><br />
-                            <Button onClick={() => crearReceta()} label="Publicar" />
-                        </div>
-                    </div>
+            <div className="nueva-receta">
+                <h1>
+                    Compartí tu receta!
+                </h1>
+                <div id="form-nuevaReceta">
+                    <p>Titulo de la receta</p>
+                    <input className="input-nuevaReceta" value={tituloReceta} onChange={(event) => { setTituloReceta(event.target.value) }} placeholder={"Título"}></input>
+                    <p>Ingredientes</p>
+                    {anadirInputIngredientes()}
+                    <button className="añadir-div" onClick={() => agrandarHookIngredientes()}> + </button>
+                    <p>Preparación</p>
+                    {anadirInputPreparacion()}
+                    <button className="añadir-div" onClick={() => agrandarHookPreparacion()}> +  </button><br /><br />
+                    <Button onClick={() => crearReceta()} label="Publicar" />
+                </div>
+            </div>
 
 
-            }
+
             <Toast ref={toast} />
         </div>
 

@@ -545,3 +545,9 @@ header img {
   margin-left: 40px;
 
 }
+
+.div-preparacion li {
+  display: flex;
+  flex: 1;
+
+}
