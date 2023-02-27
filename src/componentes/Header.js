@@ -68,7 +68,21 @@ export default function Header() {
       setVisible(true)
       setEstaRegistrado(true)
 
+
+
    }
+
+   const handleClick = () => {
+
+      if (currentUser.tipo === "guest") {
+         setVisible(true)
+         setEstaRegistrado(true)
+      } else {
+         navigate("/NuevaReceta")
+      }
+
+   }
+
    return (
       <header>
          <Dialog onHide={() => { setVisible(false) }} visible={visible} draggable={false} dismissableMask={true} closable={false}>
@@ -127,11 +141,11 @@ export default function Header() {
                <li>Platos</li>
                <li>Bebidas</li>
                <li>Postres</li>
-               <Link id='boton-nuevaReceta' to={"./NuevaReceta"} >
+               <div id='boton-nuevaReceta' onClick={() => handleClick()} >
                   <li>
                      Publica tu receta
                   </li>
-               </Link>
+               </div>
             </ul>
             <div id="div-searchbar">
                <input id="searchbar" value={busqueda} onChange={(event) => { setBusqueda(event.target.value) }} type="search" placeholder="Buscar recetas, postres, ingredientes, y más..." ></input>
