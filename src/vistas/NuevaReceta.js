@@ -5,7 +5,8 @@ import { Button } from 'primereact/button';
 import { Toast } from 'primereact/toast';
 import { useLocation, useNavigate } from "react-router-dom";
 import UserContext from "../Context/UserContext";
-
+import { FileUpload } from 'primereact/fileupload';
+import Demo from './demo';
 
 export default function NuevaReceta() {
     const { currentUser, } = useContext(UserContext)
@@ -15,11 +16,9 @@ export default function NuevaReceta() {
     const toast = useRef(null);
     const navigate = useNavigate()
     const { state } = useLocation()
-    const { idAEditar } = state
-    const [recetaEditada, setRecetaEditada] = useState({})
-    const [habilitarEdicion, setHabilitarEdicion] = useState(false)
-
-
+    // // const { idAEditar } = state
+   const [recetaEditada, setRecetaEditada] = useState({})
+   const [habilitarEdicion, setHabilitarEdicion] = useState(false)
 
 
 
@@ -124,12 +123,12 @@ export default function NuevaReceta() {
 
         setIngredientes([...ingredientes, { "ingrediente": "", "cantidad": "" }])
     }
-    useEffect(
-        () => {
-            getRecetaById(idAEditar).then(
-                (res) => setRecetaEditada(res.data)
-            )
-        }, [])
+    // useEffect(
+    //     () => {
+    //         getRecetaById(idAEditar).then(
+    //             (res) => setRecetaEditada(res.data)
+    //         )
+    //     }, [])
 
 
 
@@ -141,9 +140,9 @@ export default function NuevaReceta() {
 
 
 
-    if (recetaEditada != {}) {
-        setHabilitarEdicion(true)
-    }
+    // if (recetaEditada != {}) {
+    //     setHabilitarEdicion(true)
+    // }
 
 
 
@@ -168,6 +167,8 @@ export default function NuevaReceta() {
                         <div id="form-nuevaReceta">
                             <p>Titulo de la receta</p>
                             <input className="input-nuevaReceta" value={tituloReceta} onChange={(event) => { setTituloReceta(event.target.value) }} placeholder={"Título"}></input>
+                            <p>Imagen</p>
+                            <React.StrictMode><Demo /> </React.StrictMode>
                             <p>Ingredientes</p>
                             {anadirInputIngredientes()}
                             <button className="añadir-div" onClick={() => agrandarHookIngredientes()}> + </button>
