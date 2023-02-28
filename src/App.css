@@ -337,6 +337,7 @@ header img {
 #boton-nuevaReceta {
   text-decoration: none;
   color: black;
+  cursor:pointer;
 }
 
 #div-nueva-receta {

@@ -175,11 +175,10 @@ export default function NuevaReceta() {
                 }
             })
 
-        
     }
 
     if (currentUser.tipo === "guest") {
-        navigate("/")
+        setTimeout(() => navigate("/"), 800)
     }
 
     return (
