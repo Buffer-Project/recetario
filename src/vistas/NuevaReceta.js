@@ -5,7 +5,6 @@ import { Button } from 'primereact/button';
 import { Toast } from 'primereact/toast';
 import { useLocation, useNavigate } from "react-router-dom";
 import UserContext from "../Context/UserContext";
-import { Redirect } from 'react-router-dom';
 
 
 export default function NuevaReceta() {
