@@ -10,11 +10,11 @@ export default function Landing() {
         getAllRecetas().then(
             (res) => setRecetas(res.data)
         )
-    }
-    )
+    },
+        [recetas])
 
     const itemTemplate = (item) => {
-        return <img src={item.foto} alt={ "imagen de " + item.titulo} style={{ width: '100%', display: 'block' }} />;
+        return <img src={item.foto} alt={"imagen de " + item.titulo} style={{ width: '100%', display: 'block' }} title={"foto de " + item.titulo} />;
     }
 
 
@@ -23,7 +23,7 @@ export default function Landing() {
 
             <div className="card">
                 <Galleria className="galeria" value={recetas} numVisible={5} circular style={{ maxWidth: '300px' }}
-                    showThumbnails={false} showItemNavigators item={itemTemplate}/>
+                    showThumbnails={false} showItemNavigators item={itemTemplate} />
             </div>
 
         </div>

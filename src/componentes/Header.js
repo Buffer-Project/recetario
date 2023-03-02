@@ -69,6 +69,7 @@ export default function Header() {
                detail: 'Se ha registrado correctamente'
             });
             setVisible(false)
+            login(user)
             changeUser(user)
          },
          () => {
@@ -102,7 +103,7 @@ export default function Header() {
 
    return (
       <header>
-         <Dialog onHide={() => { setVisible(false) }} visible={visible} draggable={false} dismissableMask={true} closable={false}>
+         <Dialog onHide={() => { setVisible(false) }} visible={visible} draggable={false} dismissableMask={false} closable={true}>
             {
                estaRegistrado
                   ?
