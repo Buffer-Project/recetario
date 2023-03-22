@@ -22,5 +22,4 @@ const deleteReceta = (id) => {
     return INSTANCE.delete(baseURL+id)
 }
 
-export {getAllRecetas, createReceta, getRecetaById, updateReceta}
-export {getAllRecetas, createReceta, getRecetaById, deleteReceta}
+export {getAllRecetas, createReceta, getRecetaById, updateReceta, deleteReceta}
