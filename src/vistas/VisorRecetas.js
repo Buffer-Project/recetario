@@ -20,7 +20,6 @@ export default function VisorRecetas() {
     useEffect(() => {
         getRecetaById(id).then(
             (resultado) => {
-
                 setRecetaVisualizada(resultado.data)
                 setIsLoading(false)
                 if (currentUser.name === recetaVisualizada.autor.nombre) {
@@ -57,7 +56,7 @@ export default function VisorRecetas() {
 
     const editarReceta = () => {
 
-        navigate(`/EditarReceta/${id}`,{ state: { recetaAEditar : id } })
+        navigate("/EditarReceta/" + id, { state: { recetaAEditar: id } })
     }
 
 

@@ -337,6 +337,7 @@ header img {
 #boton-nuevaReceta {
   text-decoration: none;
   color: black;
+  cursor:pointer;
 }
 
 #div-nueva-receta {
@@ -543,5 +544,11 @@ header img {
   background-color: gray;
   border-radius: 15px;
   margin-left: 40px;
+
+}
+
+.div-preparacion li {
+  display: flex;
+  flex: 1;
 
 }

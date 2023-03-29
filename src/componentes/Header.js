@@ -79,7 +79,21 @@ export default function Header() {
       setVisible(true)
       setEstaRegistrado(true)
 
+
+
    }
+
+   const handleClick = () => {
+
+      if (currentUser.tipo === "guest") {
+         setVisible(true)
+         setEstaRegistrado(true)
+      } else {
+         navigate("/NuevaReceta")
+      }
+
+   }
+
    return (
       <header>
          <Dialog onHide={() => { setVisible(false) }} visible={visible} draggable={false} dismissableMask={true} closable={false}>
