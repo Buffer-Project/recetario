@@ -1,14 +1,14 @@
 import getApiInstance from "./apiService";
 
 const INSTANCE = getApiInstance()
-const baseURL = "recetas/"
+const baseURL = "recetas"
 
 const getAllRecetas = () => {
     return INSTANCE.get(baseURL)
 }
 
 const getRecetaById = (id) => {
-    return INSTANCE.get(baseURL + id)
+    return INSTANCE.get(baseURL + "/" + id)
 }
 
 const createReceta = (nuevaReceta) => {
@@ -16,7 +16,10 @@ const createReceta = (nuevaReceta) => {
 }
 
 const updateReceta = (receta) => {
-    return INSTANCE.patch(baseURL+receta.id, receta)
+    return INSTANCE.patch(baseURL + "/" + receta.id, receta)
+}
+const deleteReceta = (id) => {
+    return INSTANCE.delete(baseURL + "/" +  id)
 }
 
-export {getAllRecetas, createReceta, getRecetaById, updateReceta}
+export { getAllRecetas, createReceta, getRecetaById, updateReceta, deleteReceta }
