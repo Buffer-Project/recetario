@@ -28,35 +28,58 @@ export default function Header() {
          (res) => {
             setVisible(false)
             changeUser(res.data)
-
-
-
          }
-
       )
-
    }
 
    const navigate = useNavigate();
 
 
    const handleRegister = () => {
+      if (newUser === "" || newName === "" || newPassword === "" || cNewPassword === "" || newMail === "" ) {
+
+         toast.current.show({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Faltan competar datos'
+         })
+         return
+      }
+
+      if(newPassword !== cNewPassword){
+         toast.current.show({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'La contraseña no coincide'
+         })
+         return
+      }
+
       const user = {}
       user.username = newUser
       user.password = newPassword
+      user.name = newName
+      user.email = newMail
+
       register(user).then(
-         (res) => {
-            changeUser(user)
+         () => {
             toast.current.show({
                severity: 'success',
                summary: 'Exito!',
-               detail: 'Se ha registrado exitosamente'
-            })
+               detail: 'Se ha registrado correctamente'
+            });
             setVisible(false)
+            login(user)
+            changeUser(user)
          },
-         () => { }
-      )
+         () => {
+            toast.current.show({
+               severity: 'error',
+               summary: 'Error',
+               detail: 'Hubo un error de sistema, intente nuevamente en unos minutos.'
+            })
 
+         })
 
 
 
@@ -79,8 +102,6 @@ export default function Header() {
       setVisible(true)
       setEstaRegistrado(true)
 
-
-
    }
 
    const handleClick = () => {
@@ -96,7 +117,7 @@ export default function Header() {
 
    return (
       <header>
-         <Dialog onHide={() => { setVisible(false) }} visible={visible} draggable={false} dismissableMask={true} closable={false}>
+         <Dialog onHide={() => { setVisible(false) }} visible={visible} draggable={false} dismissableMask={false} closable={true}>
             {
                estaRegistrado
                   ?
@@ -128,7 +149,7 @@ export default function Header() {
                      <input type="password" value={newPassword} onChange={(event) => { setNewPassword(event.target.value) }} placeholder={"Contraseña"}></input>
                      <div>Confirmar Contraseña</div>
                      <input type="password" value={cNewPassword} onChange={(event) => { setCNewPassword(event.target.value) }} placeholder={"Confirmar Contraseña"}></input>
-                     <button onClick={() => handleRegister}>Registarte</button>
+                     <button onClick={() => handleRegister()}>Registarte</button>
                      Tienes cuenta?
                      <button onClick={() => setEstaRegistrado(!estaRegistrado)}>
                         Volver atras
