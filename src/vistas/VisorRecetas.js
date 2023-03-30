@@ -1,9 +1,11 @@
-import { Rating } from 'primereact/rating';
-import { useContext, useEffect, useState } from 'react';
+import {useContext, useEffect, useRef, useState} from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { getRecetaById } from '../api/recetaService';
+import {deleteReceta, getRecetaById} from '../api/recetaService';
 import { Skeleton } from 'primereact/skeleton';
 import UserContext from '../Context/UserContext';
+import {Toast} from "primereact/toast";
+import {Button} from "primereact/button";
+import {Rating} from "primereact/rating";
 
 
 export default function VisorRecetas() {
@@ -14,6 +16,9 @@ export default function VisorRecetas() {
     const [isLoading, setIsLoading] = useState(true)
     const [esElAutor, setEsElAutor] = useState(false)
     const navigate = useNavigate()
+
+    const toast = useRef(null)
+    const toastConfirm = useRef(null)
 
     recetaVisualizada.autor = { nombre: "Franco" }
 
@@ -55,15 +60,72 @@ export default function VisorRecetas() {
     }
 
     const editarReceta = () => {
-
         navigate("/EditarReceta/" + id, { state: { recetaAEditar: id } })
     }
 
+    const showModalEliminarReceta = () => {
+        toastConfirm.current.show({
+            severity: 'info',
+            sticky: true,
+            className: 'border-none',
+            content: (
+                <div className="flex flex-column align-items-center" style={{flex: '1'}}>
+                    <div className="text-center">
+                        <i className="pi pi-exclamation-triangle" style={{fontSize: '3rem'}}></i>
+                        <div className="font-bold text-xl my-3">Estas seguro?</div>
+                    </div>
+                    <div className="flex gap-2">
+                        <Button onClick={(e) => eliminarReceta()} type="button" label="Confirmar"
+                                className="p-button-success w-70rem"/>
+                        <Button onClick={(e) => toastConfirm.current.clear()} type="button" label="Cancelar"
+                                className="p-button-warning w-70rem"/>
+                    </div>
+                </div>
+            )
+        })
+    }
+
+    const eliminarReceta = () => {
+        deleteReceta(id).then(
+            () => {
+                toast.current.show({
+                    severity: 'success',
+                    summary: 'Exito!',
+                    detail: 'Receta eliminada con exito'
+                })
+                setTimeout(()=>navigate('/recetas'), 2000)
+            },
+            (err) => {
+                toast.current.show({
+                    severity: 'error',
+                    summary: 'Error',
+                    detail: 'Error al eliminar la receta'
+                })
+            }
+        )
+    }
+
+    const calif = [
+        {
+            comentario: 'Muy buena',
+            puntuacion: '5',
+        },
+        {
+            comentario: 'Muy Mala',
+            puntuacion: '1',
+        },
+        {
+            comentario: 'Masomenos',
+            puntuacion: '2',
+        },
+    ]
 
 
 
     return (
         <div>
+            <Toast ref={toast}/>
+            <Toast ref={toastConfirm} position={"center"}/>
 
             {
                 isLoading
@@ -101,7 +163,10 @@ export default function VisorRecetas() {
                             esElAutor
 
                                 ?
-                                <button className='boton-editar-receta' onClick={() => editarReceta()}>Editar Receta</button>
+                                <div>
+                                    <button className='boton-editar-receta' onClick={() => editarReceta()}>Editar Receta</button>
+                                    <button className='boton-editar-receta' onClick={() => showModalEliminarReceta()}>Eliminar Receta</button>
+                                </div>
                                 :
                                 null
 
