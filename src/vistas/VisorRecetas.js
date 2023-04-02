@@ -6,6 +6,7 @@ import UserContext from '../Context/UserContext';
 import {Toast} from "primereact/toast";
 import {Button} from "primereact/button";
 import {Rating} from "primereact/rating";
+import Calificaciones from "./Calificaciones";
 
 
 export default function VisorRecetas() {
@@ -26,6 +27,7 @@ export default function VisorRecetas() {
         getRecetaById(id).then(
             (resultado) => {
                 setRecetaVisualizada(resultado.data)
+                console.log(resultado.data)
                 setIsLoading(false)
                 if (currentUser.name === recetaVisualizada.autor.nombre) {
                     setEsElAutor(true)
@@ -105,20 +107,6 @@ export default function VisorRecetas() {
         )
     }
 
-    const calif = [
-        {
-            comentario: 'Muy buena',
-            puntuacion: '5',
-        },
-        {
-            comentario: 'Muy Mala',
-            puntuacion: '1',
-        },
-        {
-            comentario: 'Masomenos',
-            puntuacion: '2',
-        },
-    ]
 
 
 
@@ -171,12 +159,15 @@ export default function VisorRecetas() {
                                 null
 
                         }
+
+                        <div className='rating'>
+                            <p><b>Dejanos tu opinion!</b></p>
+                            <Rating value={value} onChange={(e) => setValue(e.value)} stars={5} cancel={false} />
+                        </div>
+                        <Calificaciones calif={recetaVisualizada.calificaciones}></Calificaciones>
                     </div>
             }
-            <div className='rating'>
-                <p><b>Dejanos tu opinion!</b></p>
-                <Rating value={value} onChange={(e) => setValue(e.value)} stars={5} cancel={false} />
-            </div>
+            
         </div>
     )
 }
