@@ -241,16 +241,17 @@ export default function NuevaReceta() {
                             {anadirInputPreparacion()}
                             <button className="añadir-div" onClick={() => agrandarHookPreparacion()}> +  </button><br /><br />
                             <Button onClick={() => crearReceta()} label="Publicar" />
-                    }
+
 
                 </div>
             </div>
-
+                    }
 
 
             <Toast ref={toast} />
         </div>
-
+            </div>
+        </div>
     )
 }
 

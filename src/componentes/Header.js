@@ -85,19 +85,6 @@ export default function Header() {
 
    }
 
-   const handleClick = () => {
-
-      if (currentUser.tipo === "guest") {
-         setVisible(true)
-         setEstaRegistrado(true)
-      } else {
-         navigate("/NuevaReceta")
-      }
-
-   }
-
-
-
    const loguearse = () => {
       setVisible(true)
       setEstaRegistrado(true)
