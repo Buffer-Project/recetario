@@ -554,5 +554,23 @@ header img {
 }
 
 .CajaCalificaciones{
-  background-color: ;
+  display: flex;
+  background-color: white;
+  padding-left:40px;
+  margin-left: 40px;
+  width: 40%;
+  border-radius: 15px;
+  
+  
+}
+
+
+.Calificaciones p{
+display: flex;
+flex-direction: column;
+padding:10px;
+background-color: lightgray;
+border-radius: 10px;
+gap: 20px;
+
 }

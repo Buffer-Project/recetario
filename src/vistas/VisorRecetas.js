@@ -159,13 +159,10 @@ export default function VisorRecetas() {
                                 null
 
                         }
-
-                        <div className='rating'>
-                            <p><b>Dejanos tu opinion!</b></p>
-                            <Rating value={value} onChange={(e) => setValue(e.value)} stars={5} cancel={false} />
-                        </div>
+                    <div className='CajaCalificaciones'>
                         <Calificaciones calif={recetaVisualizada.calificaciones}></Calificaciones>
                     </div>
+            </div>
             }
             
         </div>
